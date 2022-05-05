@@ -1,0 +1,54 @@
+/**
+ * 
+ * @authors yutent<yutent.io@gmail.com>
+ * @date 2022/05/05 14:02:55
+ */
+
+$asset_path: dark-assets;
+
+$selected_bg_color: rgba(100, 181, 246, 0.35);
+$highlight_color: rgb(100, 181, 246);
+
+$base_color: #3c4d5e;
+$text_color: #dae1e9;
+$bg_color: #57606f;
+$fg_color: #ced6e0;
+$grey_color: #86909b;
+
+$selected_fg_color: #f2f5fc;
+
+$borders_color: darken($bg_color, 6%);
+
+$separator_color: darken($grey_color, 6%);
+
+$link_color: lighten($selected_bg_color, 20%);
+
+$warning_color: #f27835;
+$error_color: #fc7661;
+$destructive_color: #ff5f45;
+
+$insensitive_fg_color: transparentize($fg_color, 0.55);
+
+$tooltip_bg_color: #fbeaa0;
+$tooltip_fg_color: #4a4a4a;
+$tooltip_border_color: #d0d0d0;
+
+$osd_fg_color: #c3c3c3;
+$osd_bg_color: #353535;
+
+$osd_button_bg: transparentize(lighten($osd_bg_color, 22%), 0.6);
+$osd_button_border: transparentize(darken($osd_bg_color, 20%), 0.6);
+
+$osd_entry_bg: transparentize(lighten($osd_bg_color, 22%), 0.6);
+$osd_entry_border: transparentize(darken($osd_bg_color, 12%), 0.6);
+
+$osd_insensitive_fg_color: mix($osd_fg_color, opacify($osd_bg_color, 1), 30%);
+
+$panel_bg: $bg_color;
+$panel_fg: $fg_color;
+
+$entry_bg: lighten($base_color, 0%);
+$entry_border: darken($borders_color, 0%);
+
+$button_bg: lighten($base_color, 2%);
+$button_border: $entry_border;

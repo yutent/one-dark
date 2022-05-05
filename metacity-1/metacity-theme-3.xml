@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <metacity_theme>
 <info>
-  <name>Mint-Y</name>
-  <author>Linux Mint</author>
-  <copyright>GPL</copyright>
-  <date>September 2021</date>
+  <name>one-dark</name>
+  <author>yutent</author>
+  <copyright>MIT</copyright>
+  <date>May 2022</date>
   <description>A pleasant theme built to adapt to many color schemes as well as be optimal for both high and low resolution displays.</description>
 </info>
 
@@ -40,10 +40,10 @@
 
 <!-- ::: GEOMETRY ::: -->
 
-<frame_geometry name="normal" title_scale="medium" rounded_top_left="8" rounded_top_right="8">
+<frame_geometry name="normal" title_scale="medium" rounded_top_left="8" rounded_top_right="8" rounded_bottom_left="8" rounded_bottom_right="8">
 	<distance name="left_width" value="1" />
 	<distance name="right_width" value="1" />
-	<distance name="bottom_height" value="1" />
+	<distance name="bottom_height" value="4" />
 	<distance name="left_titlebar_edge" value="0"/>
 	<distance name="right_titlebar_edge" value="0"/>
 	<distance name="title_vertical_pad" value="0"/>

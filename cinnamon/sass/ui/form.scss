@@ -1,0 +1,116 @@
+//
+// Slider
+//
+.popup-slider-menu-item,
+.slider {
+  -slider-height: 0.3em;
+  -slider-background-color: $button_border; //background of the trough
+  -slider-border-color: transparentize($bg_color, 0.7); //trough border color
+  -slider-active-background-color: $selected_bg_color; //active trough fill
+  -slider-active-border-color: transparentize($bg_color, 0.7); //active trough border
+  -slider-border-width: 1px;
+  -slider-handle-radius: 0.5em;
+  height: 1em;
+  min-width: 15em;
+  border: 0 solid transparent;
+  border-right-width: 1px;
+  border-left-width: 5px;
+}
+
+//
+// Check Boxes
+//
+.check-box {
+  CinnamonGenericContainer {
+    spacing: 0.2em;
+    min-height: 30px;
+    padding-top: 2px;
+  }
+
+  StLabel {
+    font-weight: normal;
+  }
+
+  StBin {
+    width: 16px;
+    height: 16px;
+    background-image: url('#{$asset_path}/checkbox/checkbox-unchecked.svg');
+  }
+
+  &:focus StBin {
+    background-image: url('#{$asset_path}/checkbox/checkbox-unchecked-focused.svg');
+  }
+
+  &:checked StBin {
+    background-image: url('#{$asset_path}/checkbox/checkbox-checked.svg');
+  }
+
+  &:focus:checked StBin {
+    background-image: url('#{$asset_path}/checkbox/checkbox-checked-focused.svg');
+  }
+}
+
+//
+// Radio Buttons
+//
+.radiobutton {
+  CinnamonGenericContainer {
+    spacing: 0.2em;
+    height: 26px;
+    padding-top: 2px;
+  }
+
+  StLabel {
+    padding-top: 4px;
+    font-size: 0.9em;
+    box-shadow: none;
+  }
+
+  StBin {
+    width: 16px;
+    height: 16px;
+    background-image: url('#{$asset_path}/checkbox/checkbox-unchecked.svg');
+  }
+
+  &:focus StBin {
+    background-image: url('#{$asset_path}/checkbox/checkbox-unchecked-focused.svg');
+  }
+
+  &:checked StBin {
+    background-image: url('#{$asset_path}/checkbox/checkbox-checked.svg');
+  }
+
+  &:focus:checked StBin {
+    background-image: url('#{$asset_path}/checkbox/checkbox-checked-focused.svg');
+  }
+}
+
+//
+// Switches
+//
+.toggle-switch {
+  width: 50px;
+  height: 20px;
+  background-size: contain;
+
+  &-us,
+  &-intl {
+    background-image: url('#{$asset_path}/switch/switch-off.svg');
+
+    &:checked {
+      background-image: url('#{$asset_path}/switch/switch-on.svg');
+    }
+  }
+}
+
+//
+// Links
+//
+.cinnamon-link {
+  color: $link_color;
+  text-decoration: underline;
+
+  &:hover {
+    color: lighten($link_color, 10%);
+  }
+}

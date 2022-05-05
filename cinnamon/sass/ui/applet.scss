@@ -1,0 +1,228 @@
+//
+// Applets (applet.js)
+//
+.applet {
+  &-separator {
+    padding: 1px 4px;
+
+    &.vertical {
+      padding: 4px 1px;
+    }
+  }
+
+  &-separator-line {
+    width: 1px;
+    background: rgba(255, 255, 255, 0.12);
+
+    &-vertical {
+      height: 1px;
+      background: rgba(255, 255, 255, 0.12);
+    }
+  }
+
+  &-box {
+    padding-left: 8px;
+    padding-right: 8px;
+    spacing: 4px;
+    color: $panel_fg;
+    text-shadow: none;
+    transition-duration: 100;
+    text-align: center;
+
+    &.vertical {
+      padding-left: 0px;
+      padding-right: 0px;
+      padding-top: 3px;
+      padding-bottom: 3px;
+    }
+
+    &:hover,
+    &:checked {
+      color: $selected_fg_color;
+      background-color: $selected_bg_color;
+    }
+
+    &:highlight {
+      background-image: none;
+      border-image: none;
+      background-color: transparentize($error_color, 0.5);
+    }
+  }
+
+  &-label {
+    font-weight: bold;
+    color: $panel_fg;
+
+    &:hover,
+    &:checked,
+    .applet-box:hover &,
+    .applet-box:checked & {
+      color: $selected_fg_color;
+      text-shadow: none;
+    }
+  }
+
+  &-icon {
+    color: $selected_fg_color;
+    icon-size: 22px;
+
+    &:hover,
+    &:checked,
+    .applet-box:hover > &,
+    .applet-box:checked > & {
+      color: $selected_fg_color;
+      text-shadow: none;
+    }
+  }
+}
+
+//
+// User Applet
+//
+.user-icon {
+  width: 32px;
+  height: 32px;
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+}
+
+.user-label {
+  color: $fg_color;
+  font-size: 1em;
+  font-weight: bold;
+  margin: 0px;
+}
+
+//
+// Desklets (desklet.js)
+//
+.desklet {
+  color: $fg_color;
+
+  &:highlight {
+    background-color: transparentize($error_color, 0.5);
+  }
+
+  &-with-borders {
+    border: 1px solid $borders_color;
+    border-radius: 5px;
+    background-color: $bg_color;
+    color: $fg_color;
+    padding: 12px;
+    padding-bottom: 16px;
+
+    &:highlight {
+      background-color: transparentize($error_color, 0.5);
+    }
+  }
+
+  &-with-borders-and-header {
+    border: 1px solid $borders_color;
+    border-top-width: 0;
+    border-radius: 0 0 5px 5px;
+    background-color: $bg_color;
+    color: $fg_color;
+    border-radius: 0;
+    border-radius-topleft: 0;
+    border-radius-topright: 0;
+    padding: 12px;
+    padding-bottom: 17px;
+
+    &:highlight {
+      background-color: transparentize($error_color, 0.5);
+    }
+  }
+
+  &-header {
+    border: 1px solid $borders_color;
+    border-radius: 5px 5px 0 0;
+    background-color: darken($bg_color, 3%);
+    color: $fg_color;
+    font-size: 1em;
+    padding: 12px;
+    padding-bottom: 6px;
+  }
+
+  &-drag-placeholder {
+    border: 2px solid $selected_bg_color;
+    background-color: transparentize($selected_bg_color, 0.7);
+  }
+}
+
+.photoframe-box {
+  border: 1px solid $borders_color;
+  border-radius: 5px;
+  background-color: $bg_color;
+  color: $fg_color;
+  padding: 12px;
+  padding-bottom: 16px;
+}
+
+//
+// Notification Applet
+//
+.notification-applet-padding {
+  padding: 0.5em 1em;
+}
+
+.notification-applet-container {
+  max-height: 100px;
+}
+
+//
+// Tile Preview
+//
+.tile-preview {
+  background-color: transparentize($selected_bg_color, 0.7);
+  border: 1px solid $selected_bg_color;
+
+  &.snap {
+    background-color: transparentize($selected_bg_color, 0.4);
+  }
+}
+
+.tile-hud {
+  background-color: transparentize($selected_bg_color, 0.7);
+  border: 1px solid $selected_bg_color;
+
+  &.snap {
+    background-color: transparentize($selected_bg_color, 0.4);
+  }
+
+  &:top {
+    border-top-width: 0px;
+  }
+  &:bottom {
+    border-bottom-width: 0px;
+  }
+  &:left {
+    border-left-width: 0px;
+  }
+  &:right {
+    border-right-width: 0px;
+  }
+  &:top-left {
+    border-top-width: 0px;
+    border-left-width: 0px;
+  }
+  &:top-right {
+    border-top-width: 0px;
+    border-right-width: 0px;
+  }
+  &:bottom-left {
+    border-bottom-width: 0px;
+    border-left-width: 0px;
+  }
+  &:bottom-right {
+    border-bottom-width: 0px;
+    border-right-width: 0px;
+  }
+}
+
+.xkcd-box {
+  padding: 6px;
+  border: 0px;
+  background-color: rgba(0, 0, 0, 0);
+  border-radius: 0px;
+}

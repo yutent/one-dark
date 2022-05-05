@@ -1,0 +1,267 @@
+//
+// Popvers/Menus
+//
+.menu {
+  color: $fg_color;
+  border: 0;
+  border-radius: 12px;
+  background-color: transparentize($bg_color, 0.1);
+}
+
+.popup-sub-menu {
+  background-color: $base_color;
+  box-shadow: none;
+
+  .popup-menu-item:ltr {
+    padding-right: 1.75em;
+  }
+  .popup-menu-item:rtl {
+    padding-left: 1.75em;
+  }
+
+  StScrollBar {
+    padding: 4px;
+    StBin#trough,
+    StBin#vhandle {
+      border-width: 0;
+    }
+  }
+}
+
+.popup-menu-content {
+  padding: 1em 0em 1em 0em;
+}
+.popup-menu-item {
+  padding: 0.4em 1.75em;
+  spacing: 1em;
+  // border: 1px solid transparent;
+  border-left-width: 0;
+  border-right-width: 0;
+
+  &:active {
+    color: $selected_fg_color;
+    // border-color: transparentize($fg_color, 0.89);
+    background-color: $selected_bg_color;
+  }
+  &:insensitive {
+    color: transparentize($fg_color, 0.5);
+    background: none;
+  }
+}
+
+.popup-inactive-menu-item {
+  //all icons and other graphical elements
+  color: $fg_color;
+
+  &:insensitive {
+    color: $insensitive_fg_color;
+  }
+}
+
+.popup-menu-boxpointer {
+  -arrow-border-radius: 3px;
+  -arrow-background-color: $bg_color;
+  -arrow-border-width: 1px;
+  -arrow-border-color: $borders_color;
+  -arrow-base: 21px;
+  -arrow-rise: 9px;
+  -boxpointer-gap: 2px;
+}
+
+/*Scale view context menu*/
+.popup-combo-menu {
+  color: $fg_color;
+  border: 1px solid $borders_color;
+  border-radius: 3px;
+  background-color: $base_color;
+  box-shadow: none;
+  padding: 1em 0em 1em 0em;
+}
+
+.popup-image-menu-item {
+}
+
+.popup-combobox-item {
+  spacing: 1em;
+  padding: 0.4em 1.75em;
+  border: 1px solid transparent;
+  border-left-width: 0;
+  border-right-width: 0;
+}
+
+.popup-separator-menu-item {
+  -gradient-height: 1px;
+  -gradient-start: $separator_color;
+  -gradient-end: $separator_color;
+  -margin-horizontal: 0;
+  height: 1px;
+}
+
+.popup-alternating-menu-item:alternate {
+  font-weight: normal;
+}
+
+.popup-device-menu-item {
+  spacing: 0.5em;
+}
+
+.popup-subtitle-menu-item {
+  font-weight: normal;
+}
+
+.nm-menu-item-icons {
+  spacing: 0.5em;
+}
+
+//
+// 开始菜单
+//
+.menu {
+  &-favorites-box {
+    padding: 10px;
+    transition-duration: 300;
+    background-color: transparentize($base_color, 0.7);
+    border: 0;
+    border-radius: 6px;
+  }
+
+  &-favorites-button {
+    padding: 0.9em 1em;
+    border: 0;
+    border-radius: 6px;
+
+    &:hover {
+      background-color: $selected_bg_color;
+    }
+  }
+
+  &-places {
+    &-box {
+      padding: 10px;
+      border: 0px solid red;
+    }
+
+    &-button {
+      padding: 10px;
+    }
+  }
+
+  &-categories-box {
+    padding: 10px 30px 10px 30px;
+  }
+
+  &-applications-inner-box,
+  &-applications-outer-box {
+    padding: 10px 10px 0 10px;
+  }
+
+  &-application-button {
+    padding: 7px;
+    border: 0;
+
+    // This style is used in menu application buttons for applications which were newly installed
+    &:highlighted {
+      font-weight: bold;
+    }
+
+    &-selected {
+      padding: 7px;
+      color: $selected_fg_color;
+      background-color: $selected_bg_color;
+      border-radius: 6px;
+
+      &:highlighted {
+        font-weight: bold;
+      }
+    }
+
+    &-label:ltr {
+      padding-left: 5px;
+    }
+    &-label:rtl {
+      padding-right: 5px;
+    }
+  }
+
+  &-category-button {
+    padding: 7px;
+    border: 0;
+
+    &-selected {
+      padding: 7px;
+      color: $selected_fg_color;
+      background-color: $selected_bg_color;
+      border-radius: 6px;
+    }
+    &-hover {
+      background-color: red;
+      border-radius: 2px;
+    }
+    &-greyed {
+      padding: 7px;
+      color: $insensitive_fg_color;
+      border-radius: 6px;
+    }
+
+    &-label:ltr {
+      padding-left: 5px;
+    }
+    &-label:rtl {
+      padding-right: 5px;
+    }
+  }
+
+  // Name and description of the currently hovered item in the menu
+  // This appears on the bottom right hand corner of the menu
+  &-selected-app-box {
+    padding-right: 30px;
+    padding-left: 28px;
+    text-align: right;
+    height: 2.2em;
+
+    &:rtl {
+      padding-top: 10px;
+      height: 2.2em;
+    }
+  }
+
+  &-selected-app-title {
+    font-weight: bold;
+  }
+
+  &-selected-app-description {
+    max-width: 150px;
+  }
+
+  &-search-box:ltr {
+    padding-left: 30px;
+  }
+  &-search-box-rtl {
+    padding-right: 30px;
+  }
+}
+
+#menu-search-entry {
+  width: 220px;
+  min-height: 16px;
+  font-weight: normal;
+  border: 0;
+  border-radius: 6px;
+  caret-color: $fg_color;
+  background-color: transparentize($grey_color, 0.35);
+  @extend %entry;
+
+  &:focus,
+  &:hover {
+    // box-shadow: 0 0 4px $selected_bg_color;
+  }
+}
+
+.menu-search-entry-icon {
+  icon-size: 1em;
+  color: $fg_color;
+}
+
+/* Context menu (at the moment only for favorites) */
+.menu-context-menu {
+}

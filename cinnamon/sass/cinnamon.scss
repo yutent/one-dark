@@ -1,5 +1,322 @@
-$variant: 'light';
+@import './var/var'; //use gtk colors
+@import './var/drawing';
 
-@import "_colors"; //use gtk colors
-@import "_drawing";
-@import "_common";
+stage {
+  color: $fg_color;
+}
+
+.label-shadow {
+  color: rgba(0, 0, 0, 0);
+}
+
+//
+// Buttons
+//
+%button {
+  min-height: 20px;
+  padding: 5px 32px;
+  transition-duration: 0;
+
+  &,
+  &:focus,
+  &:hover,
+  &:hover:focus,
+  &:active,
+  &:active:focus,
+  &:insensitive {
+    border-radius: 2px;
+  }
+
+  @include button(normal);
+
+  &:focus {
+    @include button(focus);
+  }
+  &:hover {
+    @include button(hover);
+  }
+  &:hover:focus {
+    @include button(focus-hover);
+  }
+  &:active,
+  &:active:focus {
+    @include button(active);
+  }
+  &:insensitive {
+    @include button(insensitive);
+  }
+}
+
+%osd_button {
+  min-height: 20px;
+  padding: 5px 32px;
+  transition-duration: 0;
+  border-radius: 2px;
+
+  @include button(osd);
+
+  &:hover {
+    @include button(osd-hover);
+  }
+  &:focus {
+    color: $selected_bg_color;
+  }
+  &:active {
+    @include button(osd-active);
+  }
+  &:insensitive {
+    @include button(osd-insensitive);
+  }
+}
+
+//
+// Entries
+//
+%entry {
+  padding: 7px;
+  caret-size: 1px;
+  selection-background-color: $selected_bg_color;
+  selected-color: $selected_fg_color;
+  transition-duration: 300ms;
+
+  // @include entry(normal);
+
+  // &:focus,
+  // &:hover {
+  //   @include entry(focus);
+  // }
+  &:insensitive {
+    @include entry(insensitive);
+  }
+
+  StIcon.capslock-warning {
+    icon-size: 16px;
+    warning-color: $warning_color;
+    padding: 0 4px;
+  }
+}
+
+%osd_entry {
+  padding: 7px;
+  caret-size: 1px;
+  caret-color: $osd_fg_color;
+  selection-background-color: $selected_bg_color;
+  selected-color: $selected_fg_color;
+  transition-duration: 300ms;
+  border-radius: 3px;
+
+  @include entry(osd);
+
+  &:focus {
+    @include entry(osd-focus);
+  }
+  &:insensitive {
+    @include entry(osd-insensitive);
+  }
+}
+
+//
+// Scrollbars
+//
+StScrollView {
+  &.vfade {
+    -st-vfade-offset: 68px;
+  }
+  &.hfade {
+    -st-hfade-offset: 68px;
+  }
+}
+
+StScrollBar {
+  padding: 8px;
+
+  StScrollView & {
+    min-width: 5px;
+    min-height: 5px;
+  }
+
+  StBin#trough {
+    background-color: transparentize($base_color, 0.9);
+    border-radius: 8px;
+  }
+
+  StButton#vhandle,
+  StButton#hhandle {
+    border-radius: 2px;
+    background-color: mix($fg_color, $bg_color, 40%);
+    border: 0px solid;
+    margin: 0px;
+
+    &:hover {
+      background-color: mix($fg_color, $bg_color, 30%);
+    }
+
+    &:active {
+      background-color: $selected_bg_color;
+    }
+  }
+}
+
+.separator {
+  -gradient-height: 1px;
+  -gradient-start: rgba(0, 0, 0, 0);
+  -gradient-end: rgba(0, 0, 0, 0);
+  -margin-horizontal: 1.5em;
+  height: 1em;
+}
+
+@import './ui/form.scss';
+
+//
+// Tooltip
+//
+#Tooltip {
+  border: 1px solid $tooltip_border_color;
+  border-radius: 3px;
+  padding: 5px 12px;
+  background-color: $tooltip_bg_color;
+  color: $tooltip_fg_color;
+  font-size: 1em;
+  font-weight: normal;
+  text-align: center;
+}
+
+//
+// Looking Glass
+//
+#LookingGlassDialog {
+  color: $fg_color;
+  border: 1px solid $borders_color;
+  border-radius: 3px;
+  background-color: $bg_color;
+  spacing: 4px;
+  padding: 8px;
+}
+
+@import './ui/panel.scss';
+
+@import './ui/calendar.scss';
+
+@import './ui/workspace.scss';
+
+@import './ui/notify.scss';
+
+//
+// Alt Tab
+///
+#altTabPopup {
+  padding: 8px;
+  spacing: 16px;
+}
+
+.switcher-list {
+  color: $fg_color;
+  border: 1px solid $borders_color;
+  background-color: $bg_color;
+  border-radius: 3px;
+  padding: 20px;
+
+  > StBoxLayout {
+    padding: 4px;
+  }
+
+  &-item-container {
+    spacing: 8px;
+  }
+
+  .item-box {
+    padding: 8px;
+    border-radius: 2px;
+
+    &:outlined {
+      padding: 8px;
+      border: 1px solid $selected_bg_color;
+    }
+
+    &:selected {
+      color: $selected_fg_color;
+      background-color: $selected_bg_color;
+      border: 0px solid $selected_bg_color;
+    }
+  }
+
+  .thumbnail {
+    width: 256px;
+  }
+
+  .thumbnail-box {
+    padding: 2px;
+    spacing: 4px;
+  }
+  .separator {
+    width: 1px;
+    background: rgba(255, 255, 255, 0.2);
+  }
+}
+
+.switcher-arrow {
+  border-color: rgba(0, 0, 0, 0);
+  color: $fg_color;
+
+  &:highlighted {
+    border-color: rgba(0, 0, 0, 0);
+    color: $selected_fg_color;
+  }
+}
+
+//.switcher-preview-backdrop { background-color: rgba(25,25,25,0.95); }
+
+.thumbnail-scroll-gradient-left {
+  background-color: rgba(0, 0, 0, 0);
+  border-radius: 24px;
+  border-radius-topright: 0px;
+  border-radius-bottomright: 0px;
+  width: 60px;
+}
+
+.thumbnail-scroll-gradient-right {
+  background-color: rgba(0, 0, 0, 0);
+  border-radius: 24px;
+  border-radius-topleft: 0px;
+  border-radius-bottomleft: 0px;
+  width: 60px;
+}
+
+//
+//Activities Ripples
+//
+.ripple-box {
+  width: 104px;
+  height: 104px;
+  background-image: url('common-assets/misc/corner-ripple.svg');
+  background-size: contain;
+
+  &:rtl {
+    background-image: url('common-assets/misc/corner-ripple.svg');
+  }
+}
+
+@import './ui/dialog.scss';
+
+//
+// Magnifier
+//
+.magnifier-zoom-region {
+  border: 2px solid rgba(128, 0, 0, 1);
+
+  .full-screen {
+    border-width: 0px;
+  }
+}
+
+@import './ui/keyboard.scss';
+
+//
+// Cinnamon Specific Section
+//
+
+@import './ui/menu.scss';
+
+@import './ui/win.scss';
+
+@import './ui/applet.scss';

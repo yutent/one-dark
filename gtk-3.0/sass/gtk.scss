@@ -1,4 +1,4 @@
-$variant: 'light';
+$variant: 'dark';
 $tint: 'no-tint';
 
 @import 'colors';
@@ -6,6 +6,5 @@ $tint: 'no-tint';
 @import 'common';
 @import 'applications';
 @import 'lightdm';
-@import 'ubiquity';
 @import 'colors-public';
 @import 'libhandy';
