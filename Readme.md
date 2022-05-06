@@ -17,9 +17,9 @@
   --color-blue-3: #2196f3;
   /* danger */
   --color-red-a: rgba(252, 118, 97, 0.35);
-  --color-red-1: rgb(252, 118, 97);
-  --color-red-2: rgb(255, 95, 69);
-  --color-red-3: rgb(243, 62, 34);
+  --color-red-1: #fc7661;
+  --color-red-2: #ff5f45;
+  --color-red-3: #f33e22;
   /* warning */
   --color-orange-a: rgba(255, 211, 66, 0.35);
   --color-orange-1: rgb(255, 211, 66);
@@ -27,12 +27,12 @@
   --color-orange-3: rgb(245, 189, 7);
   /* default1 */
   --color-plain-a: rgba(150, 204, 248, 0.35);
-  --color-plain-1: rgb(242, 245, 252);
-  --color-plain-2: rgb(232, 235, 244);
-  --color-plain-3: rgb(218, 225, 233);
+  --color-plain-1: #f2f5fc;
+  --color-plain-2: #e8ebf4;
+  --color-plain-3: #dae1e9;
   /* default2 */
   --color-grey-a: rgba(206, 214, 224, 0.35);
-  --color-grey-1: rgb(206, 214, 224);
+  --color-grey-1: #ced6e0;
   --color-grey-2: #a4b0be;
   --color-grey-3: #86909b;
   /* inverse */
