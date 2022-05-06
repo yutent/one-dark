@@ -12,9 +12,9 @@
   --color-green-3: rgb(26, 196, 88);
   /* info */
   --color-blue-a: rgba(100, 181, 246, 0.35);
-  --color-blue-1: rgb(100, 181, 246);
+  --color-blue-1: #64b5f6;
   --color-blue-2: rgb(66, 165, 245);
-  --color-blue-3: rgb(33, 150, 243);
+  --color-blue-3: #2196f3;
   /* danger */
   --color-red-a: rgba(252, 118, 97, 0.35);
   --color-red-1: rgb(252, 118, 97);
@@ -37,8 +37,8 @@
   --color-grey-3: rgb(134, 144, 155);
   /* inverse */
   --color-dark-a: rgba(87, 96, 111, 0.35);
-  --color-dark-1: rgb(87, 96, 111);
-  --color-dark-2: rgb(60, 77, 94);
-  --color-dark-3: rgb(50, 63, 77);
+  --color-dark-1: #57606f;
+  --color-dark-2: #3c4d5e;
+  --color-dark-3: #323f4d;
 }
 ```
