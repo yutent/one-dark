@@ -33,8 +33,8 @@
   /* default2 */
   --color-grey-a: rgba(206, 214, 224, 0.35);
   --color-grey-1: rgb(206, 214, 224);
-  --color-grey-2: rgb(164, 176, 190);
-  --color-grey-3: rgb(134, 144, 155);
+  --color-grey-2: #a4b0be;
+  --color-grey-3: #86909b;
   /* inverse */
   --color-dark-a: rgba(87, 96, 111, 0.35);
   --color-dark-1: #57606f;
