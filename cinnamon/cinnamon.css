@@ -549,7 +549,7 @@ StScrollBar StButton#hhandle:active {
   padding: 0;
 }
 .calendar-today-home-button-enabled:hover {
-  color: rgb(100, 181, 246);
+  color: #64b5f6;
 }
 .calendar-today-home-button-enabled:hover .calendar-today-day-label,
 .calendar-today-home-button-enabled:hover .calendar-today-date-label {
@@ -567,7 +567,7 @@ StScrollBar StButton#hhandle:active {
 .calendar-change-month-forward {
   width: 32px;
   height: 32px;
-  background-size: 32px;
+  background-size: 28px;
 }
 
 .calendar-change-month-back {

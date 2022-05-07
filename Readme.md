@@ -27,6 +27,7 @@
   --color-orange-3: rgb(245, 189, 7);
   /* default1 */
   --color-plain-a: rgba(150, 204, 248, 0.35);
+  --color-plain-a: #96ccf859;
   --color-plain-1: #f2f5fc;
   --color-plain-2: #e8ebf4;
   --color-plain-3: #dae1e9;
@@ -38,6 +39,8 @@
   /* inverse */
   --color-dark-a: rgba(87, 96, 111, 0.35);
   --color-dark-1: #57606f;
+  --color-dark-12: #4d535d;
+  --color-dark-13: #44484d;
   --color-dark-2: #3c4d5e;
   --color-dark-3: #323f4d;
 }

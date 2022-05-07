@@ -15,8 +15,8 @@
 <constant name="C_title_unfocused" value="#86909b"/>
 
 <!-- 标题栏背景 -->
-<constant name="C_wm_bg" value="#57606f" />
-<constant name="C_wm_bg_unfocused" value="#57606f" />
+<constant name="C_wm_bg" value="#4d535d" />
+<constant name="C_wm_bg_unfocused" value="#4d535d" />
 
 <!-- 窗口边框 -->
 <constant name="C_wm_border" value="#57606f" />
@@ -278,86 +278,72 @@
   <image filename="menu-icon.svg" colorize="C_icon_bg_unfocused" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
 </draw_ops>
 
-<!-- close icon -->
-
+<!-- 关闭图标 icon -->
 <draw_ops name="close_focused">
-  <image filename="button-bg.svg" colorize="C_button_close_bg_focused" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
-  <image filename="close-icon.svg" colorize="C_icon_color" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
+  <image filename="mac-close.svg" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
 </draw_ops>
 
 <draw_ops name="close_focused_pressed">
-  <image filename="button-bg.svg" colorize="C_button_close_bg_hover" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
-  <image filename="close-icon.svg" colorize="C_icon_color" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
+  <image filename="mac-close_a.svg" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
 </draw_ops>
 
 <draw_ops name="close_focused_prelight">
-  <image filename="button-bg.svg" colorize="C_button_close_bg_hover" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
-  <image filename="close-icon.svg" colorize="C_icon_color" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
+  <image filename="mac-close_a.svg" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
 </draw_ops>
 
 <draw_ops name="close_unfocused">
-  <image filename="button-bg.svg" colorize="C_button_close_bg_unfocused" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
+  <image filename="button-bg.svg" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
 </draw_ops>
 
-<!--maximize-->
+<!--最大化图标-->
 <draw_ops name="maximize_focused">
-  <image filename="button-bg.svg" colorize="C_button_maximize_bg_focused" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
-  <image filename="max-icon.svg" colorize="C_icon_color" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
+  <image filename="mac-max.svg" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
 </draw_ops>
 
 <draw_ops name="maximize_focused_pressed">
-  <image filename="button-bg.svg" colorize="C_button_maximize_bg_hover" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
-  <image filename="max-icon.svg" colorize="C_icon_color" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
+  <image filename="mac-max_a.svg" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
 </draw_ops>
 
 <draw_ops name="maximize_focused_prelight">
-  <image filename="button-bg.svg" colorize="C_button_maximize_bg_hover" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
-  <image filename="max-icon.svg" colorize="C_icon_color" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
+  <image filename="mac-max_a.svg" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
 </draw_ops>
 
 <draw_ops name="maximize_unfocused">
-  <image filename="button-bg.svg" colorize="C_button_maximize_bg_unfocused" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
+  <image filename="button-bg.svg" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
 </draw_ops>
 
-<!--unmaximize-->
+<!--已最大化图标-->
 <draw_ops name="unmaximize_focused">
-  <image filename="button-bg.svg" colorize="C_button_maximize_bg_focused" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
-  <image filename="restore-icon.svg" colorize="C_icon_color" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
+  <image filename="mac-max.svg" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
 </draw_ops>
 
 <draw_ops name="unmaximize_focused_pressed">
-  <image filename="button-bg.svg" colorize="C_button_maximize_bg_hover" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
-  <image filename="restore-icon.svg" colorize="C_icon_color" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
+  <image filename="restore-icon.svg" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
 </draw_ops>
 
 <draw_ops name="unmaximize_focused_prelight">
-  <image filename="button-bg.svg" colorize="C_button_maximize_bg_hover" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
-  <image filename="restore-icon.svg" colorize="C_icon_color" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
+  <image filename="restore-icon.svg" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
 </draw_ops>
 
 <draw_ops name="unmaximize_unfocused">
-  <image filename="button-bg.svg" colorize="C_button_bg_hover" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
-  <image filename="restore-icon.svg" colorize="C_icon_bg_unfocused" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
+  <image filename="button-bg.svg" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
 </draw_ops>
 
-<!--minimize-->
+<!--最小化图标-->
 <draw_ops name="minimize_focused">
-  <image filename="button-bg.svg" colorize="C_button_minimize_bg_focused" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
-  <image filename="min-icon.svg" colorize="C_icon_color" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
+  <image filename="mac-min.svg" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
 </draw_ops>
 
 <draw_ops name="minimize_focused_pressed">
-  <image filename="button-bg.svg" colorize="C_button_minimize_bg_hover" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
-  <image filename="min-icon.svg" colorize="C_icon_color" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
+  <image filename="mac-min_a.svg" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
 </draw_ops>
 
 <draw_ops name="minimize_focused_prelight">
-  <image filename="button-bg.svg" colorize="C_button_minimize_bg_hover" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
-  <image filename="min-icon.svg" colorize="C_icon_color" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
+  <image filename="mac-min_a.svg" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
 </draw_ops>
 
 <draw_ops name="minimize_unfocused">
-  <image filename="button-bg.svg" colorize="C_button_minimize_bg_unfocused" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
+  <image filename="button-bg.svg" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
 </draw_ops>
 
 <!-- shade icon -->
