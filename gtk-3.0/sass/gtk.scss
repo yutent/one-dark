@@ -1,10 +1,7 @@
-$variant: 'dark';
-$tint: 'no-tint';
-
-@import 'colors';
-@import 'drawing';
-@import 'common';
-@import 'applications';
-@import 'lightdm';
-@import 'colors-public';
-@import 'libhandy';
+@import 'var/colors.scss';
+@import 'var/drawing.scss';
+@import 'common.scss';
+@import 'ui/applications.scss';
+@import 'ui/lightdm.scss';
+@import 'ui/colors-public.scss';
+@import 'ui/libhandy.scss';

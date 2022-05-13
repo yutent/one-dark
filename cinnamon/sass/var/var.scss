@@ -4,9 +4,9 @@
  * @date 2022/05/05 14:02:55
  */
 
-$asset_path: dark-assets;
-
 $selected_bg_color: rgba(100, 181, 246, 0.35);
+$selected_fg_color: #f2f5fc;
+
 $highlight_color: #64b5f6;
 
 $base_color: #3c4d5e;
@@ -14,8 +14,6 @@ $text_color: #dae1e9;
 $bg_color: #57606f;
 $fg_color: #ced6e0;
 $grey_color: #86909b;
-
-$selected_fg_color: #f2f5fc;
 
 $borders_color: darken($bg_color, 6%);
 

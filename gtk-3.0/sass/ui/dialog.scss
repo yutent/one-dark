@@ -1,0 +1,173 @@
+//
+// Dialogs
+//
+.dialog-action-area .button.text-button {
+  padding: 6px 16px;
+}
+
+.message-dialog .dialog-action-area .button {
+  padding: 8px;
+}
+
+.message-dialog {
+  // Message Dialog styling
+  -GtkDialog-button-spacing: 0;
+
+  .titlebar {
+    background-color: $header_bg;
+    border-bottom: 1px solid darken($header_bg, 7%);
+  }
+
+  &.csd {
+    // rounded bottom border styling for csd version
+    &.background {
+      border-bottom-left-radius: 3px;
+      border-bottom-right-radius: 3px;
+      border: none;
+    }
+    .dialog-action-area .button {
+      padding: 8px;
+      border-radius: 0;
+
+      @extend %middle_button;
+
+      &:hover,
+      &:active,
+      &:disabled {
+        @extend %middle_button;
+      }
+
+      &:first-child {
+        @extend %first_button;
+      }
+      &:last-child {
+        @extend %last_button;
+      }
+    }
+    %middle_button {
+      border-right-style: none;
+      border-bottom-style: none;
+    }
+    %last_button {
+      border-bottom-right-radius: 3px;
+    }
+    %first_button {
+      border-left-style: none;
+      border-bottom-left-radius: 3px;
+    }
+  }
+}
+
+
+//
+// FileChooser
+//
+filechooser {
+  #pathbarbox {
+    background-color: $filechooser_bg;
+    border-bottom: 1px solid $borders_color;
+  }
+
+  .search-bar {
+    background-color: $filechooser_bg;
+  }
+
+  actionbar {
+    background-color: $bg_color;
+  }
+}
+
+filechooserbutton:drop(active) {
+  box-shadow: none;
+  border-color: transparent;
+}
+
+
+
+
+
+
+//
+// GtkInfoBar
+//
+infobar {
+  border-style: none;
+
+  &.info,
+  &.question,
+  &.warning,
+  &.error {
+    background-color: $selected_bg_color;
+    color: $selected_fg_color;
+    caret-color: currentColor;
+
+    button {
+      @extend %selected_button;
+    }
+
+    selection {
+      color: $selected_bg_color;
+      background-color: $selected_fg_color;
+    }
+
+    *:link {
+      @extend %link_selected;
+    }
+
+    &:disabled {
+      label,
+      image {
+        color: transparentize($selected_fg_color, 0.5);
+      }
+    }
+  }
+
+  &.warning {
+    background-color: $warning_color;
+  }
+  &.error {
+    background-color: $destructive_color;
+  }
+  &.question {
+    background-color: $question_color;
+  }
+}
+
+
+
+
+
+
+
+
+
+//
+// Tooltips
+//
+tooltip,
+.tooltip {
+  &.background {
+    // background-color needs to be set this way otherwise it gets drawn twice
+    // see https://bugzilla.gnome.org/show_bug.cgi?id=736155 for details.
+    background-color: $tooltip_bg_color;
+    background-clip: padding-box;
+
+    label {
+      padding: 4px;
+    }
+  }
+
+  color: $tooltip_fg_color;
+  border-radius: 2px;
+  border: 1px solid $tooltip_border_color;
+
+  decoration {
+    background-color: transparent;
+  }
+
+  * {
+    // Yeah this is ugly
+    background-color: transparent;
+    color: $tooltip_fg_color;
+  }
+}

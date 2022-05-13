@@ -187,54 +187,54 @@
 
 //arrow back
 .calendar-change-month-back {
-  background-image: url('common-assets/misc/calendar-arrow-left.svg');
+  background-image: url('assets/misc/calendar-arrow-left.svg');
 
   &:focus,
   &:hover {
-    background-image: url('common-assets/misc/calendar-arrow-left-hover.svg');
+    background-image: url('assets/misc/calendar-arrow-left-hover.svg');
   }
 
   &:active {
-    background-image: url('common-assets/misc/calendar-arrow-left.svg');
+    background-image: url('assets/misc/calendar-arrow-left.svg');
   }
 
   &:rtl {
-    background-image: url('common-assets/misc/calendar-arrow-right.svg');
+    background-image: url('assets/misc/calendar-arrow-right.svg');
 
     &:focus,
     &:hover {
-      background-image: url('common-assets/misc/calendar-arrow-right-hover.svg');
+      background-image: url('assets/misc/calendar-arrow-right-hover.svg');
     }
 
     &:active {
-      background-image: url('common-assets/misc/calendar-arrow-right.svg');
+      background-image: url('assets/misc/calendar-arrow-right.svg');
     }
   }
 }
 
 //arrow forward
 .calendar-change-month-forward {
-  background-image: url('common-assets/misc/calendar-arrow-right.svg');
+  background-image: url('assets/misc/calendar-arrow-right.svg');
 
   &:focus,
   &:hover {
-    background-image: url('common-assets/misc/calendar-arrow-right-hover.svg');
+    background-image: url('assets/misc/calendar-arrow-right-hover.svg');
   }
 
   &:active {
-    background-image: url('common-assets/misc/calendar-arrow-right.svg');
+    background-image: url('assets/misc/calendar-arrow-right.svg');
   }
 
   &:rtl {
-    background-image: url('common-assets/misc/calendar-arrow-left.svg');
+    background-image: url('assets/misc/calendar-arrow-left.svg');
 
     &:focus,
     &:hover {
-      background-image: url('common-assets/misc/calendar-arrow-left-hover.svg');
+      background-image: url('assets/misc/calendar-arrow-left-hover.svg');
     }
 
     &:active {
-      background-image: url('common-assets/misc/calendar-arrow-left.svg');
+      background-image: url('assets/misc/calendar-arrow-left.svg');
     }
   }
 }
@@ -262,8 +262,7 @@
 
   &:hover {
     color: $selected_fg_color;
-    background-color: $selected_bg_color;
-    background-color: transparentize($selected_bg_color, 0.2);
+    border-color: $selected_bg_color;
   }
 }
 
@@ -271,8 +270,7 @@
   color: $selected_fg_color;
   margin-top: 16px;
   margin-bottom: 0;
-  font-size: 1.2em;
-  font-weight: bold;
+  font-size: 1.1em;
 }
 
 // .calendar-day {

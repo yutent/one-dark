@@ -32,7 +32,7 @@
 
 
 <constant name="C_button_bg_hover" value="#fac536" />
-<constant name="C_button_bg_active" value="#fac536" />
+<constant name="C_button_bg_active" value="#d8a932" />
 
 <constant name="C_button_maximize_bg_unfocused" value="#86909b" />
 <constant name="C_button_maximize_bg_focused" value="#39ea49" />
@@ -44,20 +44,16 @@
 
 <constant name="C_icon_color" value="#3c4d5e" />
 
-<constant name="C_icon_bg_focused" value="#3c4d5e" />
-<constant name="C_icon_bg_unfocused" value="#3c4d5e" />
-<constant name="C_icon_bg_hover" value="#3c4d5e" />
-<constant name="C_icon_bg_active" value="#3c4d5e" />
 
 
 
 
 <!-- ::: GEOMETRY ::: -->
 
-<frame_geometry name="normal" title_scale="medium" rounded_top_left="8" rounded_top_right="8" rounded_bottom_left="8" rounded_bottom_right="8">
+<frame_geometry name="normal" title_scale="medium" rounded_top_left="6" rounded_top_right="6" rounded_bottom_left="6" rounded_bottom_right="6">
   <distance name="left_width" value="0" />
   <distance name="right_width" value="0" />
-  <distance name="bottom_height" value="4" />
+  <distance name="bottom_height" value="3" />
   <distance name="left_titlebar_edge" value="3"/>
   <distance name="right_titlebar_edge" value="3"/>
   <distance name="title_vertical_pad" value="0"/>
@@ -261,21 +257,21 @@
 <!-- menu icon -->
 
 <draw_ops name="menu_focused">
-  <image filename="menu-icon.svg" colorize="C_icon_bg_focused" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
+  <image filename="menu-icon.svg" colorize="C_icon_color" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
 </draw_ops>
 
 <draw_ops name="menu_focused_pressed">
   <image filename="button-bg.svg" colorize="C_button_bg_active" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
-  <image filename="menu-icon.svg" colorize="C_icon_bg_active" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
+  <image filename="menu-icon.svg" colorize="C_icon_color" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
 </draw_ops>
 
 <draw_ops name="menu_focused_prelight">
   <image filename="button-bg.svg" colorize="C_button_bg_hover" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
-  <image filename="menu-icon.svg" colorize="C_icon_bg_hover" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
+  <image filename="menu-icon.svg" colorize="C_icon_color" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
 </draw_ops>
 
 <draw_ops name="menu_unfocused">
-  <image filename="menu-icon.svg" colorize="C_icon_bg_unfocused" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
+  <image filename="menu-icon.svg" colorize="C_icon_color" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
 </draw_ops>
 
 <!-- 关闭图标 icon -->
@@ -349,81 +345,81 @@
 <!-- shade icon -->
 
 <draw_ops name="shade_focused">
-  <image filename="shade-icon.svg" colorize="C_icon_bg_focused" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
+  <image filename="shade-icon.svg" colorize="C_icon_color" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
 </draw_ops>
 
 <draw_ops name="shade_focused_pressed">
   <image filename="button-bg.svg" colorize="C_button_bg_active" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
-  <image filename="shade-icon.svg" colorize="C_icon_bg_active" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
+  <image filename="shade-icon.svg" colorize="C_icon_color" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
 </draw_ops>
 
 <draw_ops name="shade_focused_prelight">
   <image filename="button-bg.svg" colorize="C_button_bg_hover" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
-  <image filename="shade-icon.svg" colorize="C_icon_bg_hover" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
+  <image filename="shade-icon.svg" colorize="C_icon_color" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
 </draw_ops>
 
 <draw_ops name="shade_unfocused">
-  <image filename="shade-icon.svg" colorize="C_icon_bg_unfocused" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
+  <image filename="shade-icon.svg" colorize="C_icon_color" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
 </draw_ops>
 
 <!-- unshade icon -->
 
 <draw_ops name="unshade_focused">
-  <image filename="unshade-icon.svg" colorize="C_icon_bg_focused" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
+  <image filename="unshade-icon.svg" colorize="C_icon_color" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
 </draw_ops>
 
 <draw_ops name="unshade_focused_pressed">
   <image filename="button-bg.svg" colorize="C_button_bg_active" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
-  <image filename="unshade-icon.svg" colorize="C_icon_bg_active" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
+  <image filename="unshade-icon.svg" colorize="C_icon_color" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
 </draw_ops>
 
 <draw_ops name="unshade_focused_prelight">
   <image filename="button-bg.svg" colorize="C_button_bg_hover" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
-  <image filename="unshade-icon.svg" colorize="C_icon_bg_hover" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
+  <image filename="unshade-icon.svg" colorize="C_icon_color" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
 </draw_ops>
 
 <draw_ops name="unshade_unfocused">
-  <image filename="unshade-icon.svg" colorize="C_icon_bg_unfocused" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
+  <image filename="unshade-icon.svg" colorize="C_icon_color" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
 </draw_ops>
 
 <!-- stick icon -->
 
 <draw_ops name="stick_focused">
-  <image filename="stick-icon.svg" colorize="C_icon_bg_focused" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
+  <image filename="stick-icon.svg" colorize="C_icon_color" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
 </draw_ops>
 
 <draw_ops name="stick_focused_pressed">
   <image filename="button-bg.svg" colorize="C_button_bg_active" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
-  <image filename="stick-icon.svg" colorize="C_icon_bg_active" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
+  <image filename="stick-icon.svg" colorize="C_icon_color" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
 </draw_ops>
 
 <draw_ops name="stick_focused_prelight">
   <image filename="button-bg.svg" colorize="C_button_bg_hover" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
-  <image filename="stick-icon.svg" colorize="C_icon_bg_hover" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
+  <image filename="stick-icon.svg" colorize="C_icon_color" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
 </draw_ops>
 
 <draw_ops name="stick_unfocused">
-  <image filename="stick-icon.svg" colorize="C_icon_bg_unfocused" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
+  <image filename="stick-icon.svg" colorize="C_icon_color" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
 </draw_ops>
 
 <!-- unstick icon -->
 
 <draw_ops name="unstick_focused">
-  <image filename="unstick-icon.svg" colorize="C_icon_bg_focused" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
+  <image filename="unstick-icon.svg" colorize="C_icon_color" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
 </draw_ops>
 
 <draw_ops name="unstick_focused_pressed">
   <image filename="button-bg.svg" colorize="C_button_bg_active" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
-  <image filename="unstick-icon.svg" colorize="C_icon_bg_active" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
+  <image filename="unstick-icon.svg" colorize="C_icon_color" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
 </draw_ops>
 
 <draw_ops name="unstick_focused_prelight">
   <image filename="button-bg.svg" colorize="C_button_bg_hover" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
-  <image filename="unstick-icon.svg" colorize="C_icon_bg_hover" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
+  <image filename="unstick-icon.svg" colorize="C_icon_color" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
 </draw_ops>
 
 <draw_ops name="unstick_unfocused">
-  <image filename="unstick-icon.svg" colorize="C_icon_bg_unfocused" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
+  <image filename="unstick-icon.svg" colorize="C_icon_color" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
 </draw_ops>
 
 <draw_ops name="blank">

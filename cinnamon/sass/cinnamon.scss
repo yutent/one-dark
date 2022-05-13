@@ -288,11 +288,11 @@ StScrollBar {
 .ripple-box {
   width: 104px;
   height: 104px;
-  background-image: url('common-assets/misc/corner-ripple.svg');
+  background-image: url('assets/misc/corner-ripple.svg');
   background-size: contain;
 
   &:rtl {
-    background-image: url('common-assets/misc/corner-ripple.svg');
+    background-image: url('assets/misc/corner-ripple.svg');
   }
 }
 

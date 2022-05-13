@@ -1,0 +1,140 @@
+
+
+//
+// Switches
+//
+switch {
+  font-size: 1px;
+  min-width: 52px;
+  min-height: 24px;
+  background-size: 52px 24px;
+  background-repeat: no-repeat;
+  background-position: center center;
+
+  slider {
+    min-width: 1px;
+    min-height: 1px;
+  }
+
+  &,
+  slider {
+    outline-color: transparent;
+    color: transparent;
+    border: none;
+    box-shadow: none;
+  }
+}
+
+@each $k, $l in ('', ''), (':checked', '-active'), (':disabled', '-insensitive'),
+  (':checked:disabled', '-active-insensitive')
+{
+  // load switch troughs from .png files in assets directory
+
+  switch#{$k} {
+    background-image: -gtk-scaled(
+      url('assets/switch#{$l}.png'),
+      url('assets/switch#{$l}@2.png')
+    );
+  }
+
+  menuitem:hover switch#{$k},
+  row:selected switch#{$k},
+  infobar switch#{$k} {
+    background-image: -gtk-scaled(
+      url('assets/switch#{$l}-selected.png'),
+      url('assets/switch#{$l}-selected@2.png')
+    );
+  }
+
+  headerbar switch#{$k},
+  .primary-toolbar switch#{$k},
+  .primary-toolbar toolbar switch#{$k} {
+    background-image: -gtk-scaled(
+      url('assets/switch#{$l}-header.png'),
+      url('assets/switch#{$l}-header@2.png')
+    );
+  }
+}
+
+//
+// Check and Radio items *
+//
+@each $w, $a in ('check', 'checkbox'), ('radio', 'radio') {
+  //standard checks and radios
+  @each $s, $as in ('', '-unchecked'), (':disabled', '-unchecked-insensitive'),
+    (':indeterminate', '-mixed'), (':indeterminate:disabled', '-mixed-insensitive'),
+    (':checked', '-checked'), (':checked:disabled', '-checked-insensitive')
+  {
+    .#{$w}#{$s},
+    #{$w}#{$s},
+    treeview.#{$w}#{$s} {
+      -gtk-icon-source: -gtk-scaled(
+        url('assets/#{$a}#{$as}.png'),
+        url('assets/#{$a}#{$as}@2.png')
+      );
+    }
+
+    .osd,
+    %osd_check_radio {
+      #{$w}#{$s} {
+        -gtk-icon-source: -gtk-scaled(
+          url('assets/#{$a}#{$as}-dark.png'),
+          url('assets/#{$a}#{$as}-dark@2.png')
+        );
+      }
+    }
+    // the borders of checks and radios are
+    // too similar in luminosity to the selected background color, hence
+    // we need special casing.
+    .view #{$w}#{$s}:selected,
+    treeview.#{$w}#{$s}:selected,
+    row:selected #{$w}#{$s},
+    infobar #{$w}#{$s} {
+      -gtk-icon-source: -gtk-scaled(
+        url('assets/#{$a}#{$as}-selected.png'),
+        url('assets/#{$a}#{$as}-selected@2.png')
+      );
+    }
+  }
+}
+
+// Selectionmode
+@each $s, $as in ('', '-selectionmode'), (':checked', '-checked-selectionmode') {
+  .view.content-view.check#{$s}:not(.list) {
+    -gtk-icon-source: -gtk-scaled(
+      url('assets/checkbox#{$as}.png'),
+      url('assets/checkbox#{$as}@2.png')
+    );
+    background-color: transparent;
+  }
+}
+
+checkbutton,
+radiobutton {
+  // this is for a nice focus on check and radios text
+  &.text-button {
+    padding: 2px 0;
+    outline-offset: 0;
+  }
+
+  label:not(:only-child) {
+    &:first-child {
+      margin-left: 4px;
+    }
+    &:last-child {
+      margin-right: 4px;
+    }
+  }
+}
+
+check,
+radio {
+  min-width: 16px;
+  min-height: 16px;
+  margin: 0 2px;
+
+  &:only-child,
+  menu menuitem & {
+    margin: 0;
+  }
+}

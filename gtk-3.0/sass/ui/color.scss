@@ -1,0 +1,122 @@
+
+
+
+//
+// Color Chooser
+//
+
+colorswatch {
+  // This widget is made of two boxes one on top of the other, the lower box is GtkColorSwatch {} the other one
+  // is GtkColorSwatch .overlay {}, GtkColorSwatch has the programmatically set background, so most of the style
+  // is applied to the overlay box.
+
+  // take care of colorswatches on selected elements
+  // :selected & {
+  //   box-shadow: none;
+  //   &.overlay, &.overlay:hover {
+  //     border-color: $selected_fg_color;
+  //   }
+  // }
+
+  &,
+  &:drop(active) {
+    border-style: none;
+  }
+
+  // border rounding
+  &.top {
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+
+    overlay {
+      border-top-left-radius: 3px;
+      border-top-right-radius: 3px;
+    }
+  }
+  &.bottom {
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+
+    overlay {
+      border-bottom-left-radius: 3px;
+      border-bottom-right-radius: 3px;
+    }
+  }
+  &.left,
+  &:first-child:not(.top) {
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+
+    overlay {
+      border-top-left-radius: 3px;
+      border-bottom-left-radius: 3px;
+    }
+  }
+  &.right,
+  &:last-child:not(.bottom) {
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+
+    overlay {
+      border-top-right-radius: 3px;
+      border-bottom-right-radius: 3px;
+    }
+  }
+  &.dark overlay {
+    color: transparentize(white, 0.3);
+    &:hover {
+      border-color: $borders_color;
+    }
+  }
+  &.light overlay {
+    color: transparentize(black, 0.3);
+    &:hover {
+      border-color: $borders_color;
+    }
+  }
+
+  overlay {
+    border: 1px solid $borders_color;
+    &:hover {
+      background-color: transparentize(white, 0.8);
+    }
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    overlay {
+      border-color: transparentize(black, 0.4);
+      box-shadow: none;
+    }
+  }
+
+  // make the add color button looks like, well, a button
+  &#add-color-button {
+    border-style: solid; // the borders are drawn by the overlay for standard colorswatches to have them semi
+    border-width: 1px; // translucent on the colored background, here it's not necessary so they need to be set
+    @include button(normal);
+    &:hover {
+      @include button(hover);
+    }
+    overlay {
+      @include button(undecorated);
+    } // reset the overlay to not cover the button style underneath
+  }
+}
+
+button.color {
+  padding: 0;
+
+  colorswatch:first-child:last-child {
+    &,
+    overlay {
+      margin: 4px;
+      border-radius: 0;
+    }
+  }
+}
+
+// colorscale popup
+colorchooser .popover.osd {
+  border-radius: 3px;
+}

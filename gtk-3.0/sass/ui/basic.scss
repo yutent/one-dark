@@ -1,0 +1,216 @@
+@function gtkalpha($c, $a) {
+  @return unquote('alpha(#{$c},#{$a})');
+}
+
+$ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+* {
+  background-clip: padding-box;
+  -GtkToolButton-icon-spacing: 4;
+  -GtkTextView-error-underline-color: $error_color;
+
+  -GtkScrolledWindow-scrollbar-spacing: 0;
+
+  -GtkToolItemGroup-expander-size: 11;
+
+  -GtkWidget-text-handle-width: 20;
+  -GtkWidget-text-handle-height: 20;
+
+  -GtkDialog-button-spacing: 4;
+  -GtkDialog-action-area-border: 6;
+
+  // We use the outline properties to signal the focus properties
+  outline-color: transparentize($fg_color, .7);
+  outline-style: dashed;
+  outline-offset: -3px;
+  outline-width: 1px;
+  -gtk-outline-radius: 2px;
+}
+
+//
+// Base States
+//
+.background {
+  color: $fg_color;
+  background-color: $bg_color;
+}
+
+*:disabled {
+  -gtk-icon-effect: dim;
+}
+
+.gtkstyle-fallback {
+  background-color: $bg_color;
+  color: $fg_color;
+  &:hover {
+    background-color: lighten($bg_color, 10%);
+    color: $fg_color;
+  }
+  &:active {
+    background-color: darken($bg_color, 10%);
+    color: $fg_color;
+  }
+  &:disabled {
+    background-color: $insensitive_bg_color;
+    color: $insensitive_fg_color;
+  }
+  &:selected {
+    background-color: $selected_bg_color;
+    color: $selected_fg_color;
+  }
+}
+
+.view,
+%view {
+  color: $text_color;
+  background-color: $bg_color;
+
+  &:selected {
+    &,
+    &:focus {
+      @extend %selected_items;
+      border-radius: 2px;
+    }
+  }
+}
+
+.view,
+textview {
+  text {
+    @extend %view;
+
+    selection {
+      &:focus,
+      & {
+        @extend %selected_items;
+      }
+    }
+  }
+}
+
+textview border {
+  background-color: mix($bg_color, $base_color, 50%);
+}
+
+iconview {
+  @extend .view;
+}
+
+rubberband,
+.rubberband {
+  border: 1px solid darken($selected_bg_color, 10%);
+  // background-color: transparentize(darken($selected_bg_color, 10%), 0.8);
+  background-colo:#f30;
+}
+
+flowbox {
+  rubberband {
+    @extend rubberband;
+  }
+
+  flowboxchild {
+    padding: 3px;
+    border-radius: 2px;
+
+    &:selected {
+      @extend %selected_items;
+
+      outline-offset: -2px;
+    }
+  }
+}
+
+label {
+  &.separator {
+    @extend .dim-label;
+
+    color: $fg_color;
+  }
+
+  row:selected &,
+  &:selected {
+    @extend %nobg_selected_items;
+  }
+
+  selection {
+    color: $selected_fg_color;
+    background-color: $selected_bg_color;
+  }
+
+  &:disabled {
+    color: $insensitive_fg_color;
+
+    selection {
+      @extend %selected_items_disabled;
+    }
+  }
+}
+
+.dim-label {
+  color: $dim_label_fg_color;
+}
+
+assistant {
+  .sidebar {
+    background-color: $base_color;
+    border-top: 1px solid $borders_color;
+    &:dir(ltr) {
+      border-right: 1px solid $borders_color;
+    }
+    &:dir(rtl) {
+      border-left: 1px solid $borders_color;
+    }
+  }
+
+  &.csd .sidebar {
+    border-top-style: none;
+  }
+
+  .sidebar label {
+    padding: 6px 12px;
+  }
+
+  .sidebar label.highlight {
+    background-color: $selected_bg_color;
+    color: $selected_fg_color;
+  }
+}
+
+textview {
+  // This will get overridden by .view, needed by gedit line numbers and the mintupdate package description
+  background-color: mix($bg_color, $base_color, 50%);
+  color: $text_color;
+}
+
+%osd,
+.osd {
+  color: $osd_fg_color;
+  border: none;
+  background-color: $osd_bg_color;
+  background-clip: padding-box;
+  box-shadow: none;
+}
+
+//
+// Spinner Animations
+//
+@keyframes spin {
+  to {
+    -gtk-icon-transform: rotate(1turn);
+  }
+}
+
+spinner {
+  background-image: none;
+  opacity: 0; // non spinning spinner makes no sense
+  -gtk-icon-source: -gtk-icontheme('process-working-symbolic');
+
+  &:checked {
+    opacity: 1;
+    animation: spin 1s linear infinite;
+
+    &:disabled {
+      opacity: 0.5;
+    }
+  }
+}

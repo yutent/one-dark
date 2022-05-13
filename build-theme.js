@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 /**
  * {}
  * @author yutent<yutent.io@gmail.com>
@@ -17,11 +18,15 @@ const GTK3_SCSS = './gtk-3.0/sass/gtk.scss'
 const GTK3_STYLE = './gtk-3.0/gtk.css'
 
 function render(file) {
-  return scss.renderSync({
-    file,
-    indentType: 'space',
-    indentWidth: 2
-  }).css
+  try {
+    return scss.renderSync({
+      file,
+      indentType: 'space',
+      indentWidth: 2
+    }).css
+  } catch (err) {
+    console.log(err)
+  }
 }
 
 /*=======================================================*/

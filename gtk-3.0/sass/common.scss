@@ -1,0 +1,265 @@
+
+
+//
+// Buttons on selected backgrounds
+//
+%selected_button {
+  @at-root %selected_button_normal,
+    & {
+    color: $selected_fg_color;
+    background-color: transparentize($selected_fg_color, 1);
+    border-color: transparentize($selected_fg_color, 0.5);
+  }
+
+  &.flat {
+    @include button(undecorated);
+    color: $selected_fg_color;
+    background-color: transparentize($selected_fg_color, 1);
+
+    @at-root %selected_button_flat_disabled,
+      &:disabled {
+      &,
+      label {
+        color: transparentize($selected_fg_color, 0.6);
+      }
+    }
+  }
+  &:hover {
+    color: $selected_fg_color;
+    background-color: transparentize($selected_fg_color, 0.8);
+    border-color: transparentize($selected_fg_color, 0.2);
+  }
+  @at-root %selected_button_active,
+    &:active,
+    &:active:hover,
+    &:checked {
+    color: $selected_bg_color;
+    background-color: $selected_fg_color;
+    border-color: $selected_fg_color;
+  }
+  &:disabled {
+    &,
+    label {
+      color: transparentize($selected_fg_color, 0.5);
+    }
+    background-color: transparentize($selected_fg_color, 1);
+    border-color: transparentize($selected_fg_color, 0.6);
+
+    @at-root %selected_button_disabled_checked,
+      &:active,
+      &:checked {
+      color: $selected_bg_color;
+      background-color: transparentize($selected_fg_color, 0.5);
+      border-color: transparentize($selected_fg_color, 0.6);
+    }
+  }
+}
+
+// catch all extend
+%selected_items {
+  background-color: $selected_bg_color;
+
+  @at-root %nobg_selected_items,
+    & {
+    color: $selected_fg_color;
+
+    @at-root %selected_items_disabled,
+      &:disabled {
+      color: mix($selected_fg_color, $selected_bg_color, 50%);
+    }
+  }
+}
+
+
+@import "./ui/basic.scss";
+
+
+@import "./ui/entry.scss";
+
+@import "./ui/button.scss";
+
+@import "./ui/toolbar.scss";
+
+@import "./ui/treeview.scss";
+
+@import "./ui/menu.scss";
+
+
+@import "./ui/notebook.scss";
+
+
+@import "./ui/scrollbar.scss";
+
+
+@import "./ui/switch-check.scss";
+
+
+@import "./ui/other.scss";
+
+
+@import "./ui/list.scss";
+
+
+
+
+//
+// Calendar
+//
+calendar {
+  color: $fg_color;
+  border: 1px solid $borders_color;
+  border-radius: 3px;
+  padding: 2px;
+
+  &:selected {
+    background-color: $selected_bg_color;
+    color: $selected_fg_color;
+    border-radius: 1.5px;
+  }
+  &.header {
+    color: $fg_color;
+    border: none;
+    border-radius: 0;
+  }
+  &.button,
+  &.button:focus {
+    color: transparentize($fg_color, 0.55);
+    @include button(undecorated);
+
+    &:hover {
+      color: $fg_color;
+    }
+    &:disabled {
+      color: $insensitive_fg_color;
+      background-color: transparent;
+      background-image: none;
+    }
+  }
+  &:indeterminate {
+    color: gtkalpha(currentColor, 0.55);
+  }
+  &.highlight {
+    color: $fg_color;
+  }
+}
+
+
+@import "./ui/dialog.scss";
+
+
+
+@import "./ui/sidebar.scss";
+
+
+
+@import "./ui/color.scss";
+
+
+@import "./ui/misc.scss";
+
+
+
+//
+// Shortcuts Help
+//
+button.circular,
+button.circular-button,
+.stack-switcher > button.circular {
+  min-width: 24px;
+  min-height: 24px;
+  padding: 5px;
+  border-radius: 50%;
+  -gtk-outline-radius: 50%;
+
+  label {
+    padding: 0;
+  }
+}
+
+.keycap {
+  min-width: 16px;
+  min-height: 20px;
+
+  padding: 3px 6px 4px 6px;
+
+  color: $fg_color;
+  background-color: $base_color;
+  border: 1px solid $borders_color;
+  border-radius: 2.5px;
+  box-shadow: inset 0px -2px 0px transparentize(black, 0.85);
+}
+
+//
+// Dnd
+//
+*:drop(active):focus,
+*:drop(active) {
+  box-shadow: inset 0 0 0 1px $selected_bg_color;
+}
+
+//
+// Window Decorations
+//
+decoration {
+  border-radius: 8px;
+  border-width: 0px;
+
+  $_wm_border: transparentize(black, 0.65);
+  $_wm_border_backdrop: transparentize(black, 0.7);
+
+  box-shadow: 0 3px 9px 1px transparentize(black, 0.5), 0 0 0 1px $wm_border; //doing borders with box-shadow
+
+  // this is used for the resize cursor area
+  margin: 10px;
+
+  &:backdrop {
+    // the transparent shadow here is to enforce that the shadow extents don't
+    // change when we go to backdrop, to prevent jumping windows
+    box-shadow: 0 3px 9px 1px transparent, 0 2px 6px 2px transparentize(black, 0.8),
+      0 0 0 1px $wm_border_unfocused;
+  }
+
+  .fullscreen &,
+  .maximized &,
+  .tiled &,
+  .tiled &:backdrop {
+    border-radius: 0;
+    box-shadow: 0 3px 9px 1px transparent, 0 2px 6px 2px transparent, 0 0 0 1px $wm_border_unfocused;
+  }
+  .popup & {
+    box-shadow: none;
+    border-radius: 0;
+  }
+  // server-side decorations as used by mutter
+  .ssd & {
+    border-radius: 8px;
+    box-shadow: 0 0 0 1px transparentize(black, 0.35);
+
+    &.maximized {
+      border-radius: 0;
+    }
+  }
+  .csd.popup & {
+    border-radius: 2px;
+    box-shadow: 0 1px 4px transparentize(black, 0.8), 0 0 0 1px transparentize($wm_border, 0.1);
+  }
+  tooltip.csd & {
+    border-radius: 2px;
+    box-shadow: 0 1px 3px 1px $_wm_border;
+  }
+  message-dialog.csd & {
+    border-radius: 3px;
+  }
+  .solid-csd & {
+    border-radius: 0;
+    margin: 1px;
+    background-color: $header_bg;
+    box-shadow: none;
+  }
+}
+
+@import "./ui/headerbar.scss";
+
+
+
+

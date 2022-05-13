@@ -1,0 +1,647 @@
+//
+// Buttons
+//
+// stuff for .needs-attention
+$_dot_color: $selected_bg_color;
+
+@keyframes needs_attention {
+  from {
+    background-image: -gtk-gradient(
+      radial,
+      center center,
+      0,
+      center center,
+      0.01,
+      to($_dot_color),
+      to(transparent)
+    );
+  }
+  to {
+    background-image: -gtk-gradient(
+      radial,
+      center center,
+      0,
+      center center,
+      0.5,
+      to($selected_bg_color),
+      to(transparent)
+    );
+  }
+}
+
+$button_transition: all 200ms $ease-out-quad;
+
+button {
+  min-height: 22px;
+  min-width: 20px;
+  transition: $button_transition;
+  border: 1px solid;
+  border-radius: 3px;
+  padding: 5px 8px;
+
+  @include button(normal);
+
+  separator {
+    margin: 4px 1px;
+  }
+
+  @at-root %button_basic_flat,
+    &.flat {
+    @include button(undecorated);
+    // to avoid adiacent buttons borders clashing when transitioning, the transition on the normal state is set
+    // to none, while it's added back in the hover state, so the button decoration will fade in on hover, but
+    // it won't fade out when the pointer leave the button allocation area. To make the transition more evident
+    // in this case the duration is increased.
+    transition: none;
+
+    &:hover {
+      transition: $button_transition;
+      transition-duration: 350ms;
+
+      &:active {
+        transition: $button_transition;
+      }
+    }
+  }
+
+  &:hover {
+    @include button(hover);
+    -gtk-icon-effect: highlight;
+  }
+
+  &:active,
+  &:checked {
+    @include button(active);
+
+    background-clip: padding-box;
+    transition-duration: 50ms;
+
+    &:not(:disabled) label:disabled {
+      color: inherit;
+      opacity: 0.6;
+    }
+  }
+
+  @at-root %button_basic_flat,
+    &.flat:disabled {
+    @include button(undecorated);
+  }
+
+  &:disabled {
+    @include button(insensitive);
+
+    &:active,
+    &:checked {
+      @include button(insensitive-active);
+    }
+  }
+
+  &.image-button {
+    min-width: 24px;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  &.text-button {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  &.text-button.image-button {
+    padding-left: 5px;
+    padding-right: 5px;
+
+    label {
+      &:first-child {
+        padding-left: 8px;
+        padding-right: 2px;
+      }
+      &:last-child {
+        padding-right: 8px;
+        padding-left: 2px;
+      }
+      &:only-child {
+        padding-left: 8px;
+        padding-right: 8px;
+      }
+    }
+
+    &.popup {
+      padding-right: 8px;
+      padding-left: 8px;
+    }
+  }
+
+  @at-root %button_basic_drop_active,
+    &:drop(active) {
+    color: $drop_target_color;
+    border-color: $drop_target_color;
+    box-shadow: none;
+  }
+
+  // big standalone buttons like in Documents pager
+  &.osd {
+    color: $osd_fg_color;
+    outline-color: transparentize($osd_fg_color, 0.7);
+    background-color: $osd_bg_color;
+    border-color: darken($osd_bg_color, 8%);
+
+    &.image-button {
+      padding: 0;
+      min-height: 36px;
+      min-width: 36px;
+    }
+
+    &:hover {
+      color: $selected_bg_color;
+    }
+    &:active,
+    &:checked {
+      @include button(osd-active);
+    }
+    &:disabled {
+      @include button(osd-insensitive);
+    }
+  }
+
+  //overlay / OSD style
+  .osd & {
+    @include button(osd);
+
+    &:hover {
+      @include button(osd-hover);
+    }
+    &:active,
+    &:checked {
+      background-clip: padding-box;
+      @include button(osd-active);
+    }
+    &:disabled {
+      @include button(osd-insensitive);
+    }
+
+    &.flat {
+      @include button(undecorated);
+      box-shadow: none;
+      &:hover {
+        @include button(osd-hover);
+      }
+      &:disabled {
+        @include button(osd-insensitive);
+        background-image: none;
+      }
+      &:active,
+      &:checked {
+        @include button(osd-active);
+      }
+    }
+  }
+  .osd .linked:not(.vertical):not(.path-bar) > &:hover:not(:checked):not(:active):not(:only-child),
+  .osd
+    .linked:not(.vertical):not(.path-bar)
+    > &:hover:not(:checked):not(:active)
+    + &:not(:checked):not(:active) {
+    box-shadow: none;
+  }
+
+  // Suggested and Destructive Action buttons
+  @each $b_type, $b_color in (suggested-action, $suggested_color),
+    (destructive-action, $destructive_color)
+  {
+    &.#{$b_type} {
+      @include button(suggested_destructive, $b_color);
+
+      &.flat {
+        @include button(undecorated);
+        color: $b_color;
+        outline-color: transparentize($b_color, 0.7);
+      }
+      &:hover {
+        @include button(suggested_destructive, lighten($b_color, 10%));
+      }
+      &:active,
+      &:checked {
+        @include button(suggested_destructive, darken($b_color, 10%));
+      }
+      &.flat:disabled {
+        @include button(undecorated);
+        color: $insensitive_fg_color;
+      }
+      &:disabled {
+        @include button(insensitive);
+      }
+    }
+  }
+
+  .stack-switcher > & {
+    // to position the needs attention dot, padding is added to the button
+    // child, a label needs just lateral padding while an icon needs vertical
+    // padding added too.
+
+    outline-offset: -3px; // needs to be set or it gets overridden by GtkRadioButton outline-offset
+
+    > label {
+      padding-left: 6px; // label padding
+      padding-right: 6px; //
+    }
+    > image {
+      padding-left: 6px;
+      padding-right: 6px;
+      padding-top: 3px;
+      padding-bottom: 3px;
+    }
+    &.text-button {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+    &.image-button {
+      padding-left: 2px;
+      padding-right: 2px;
+    }
+
+    &.needs-attention {
+      > label,
+      > image {
+        @extend %needs_attention;
+      }
+
+      &:active,
+      &:checked {
+        > label,
+        > image {
+          animation: none;
+          background-image: none;
+        }
+      }
+    }
+  }
+
+  %needs_attention {
+    animation: needs_attention 150ms ease-in;
+    background-image: -gtk-gradient(
+      radial,
+      center center,
+      0,
+      center center,
+      0.5,
+      to($_dot_color),
+      to(transparent)
+    );
+    background-size: 6px 6px, 6px 6px;
+    background-repeat: no-repeat;
+
+    background-position: right 3px, right 2px;
+
+    &:dir(rtl) {
+      background-position: left 3px, left 2px;
+    }
+  }
+
+  // hide separators
+  &.font,
+  &.file {
+    separator {
+      background-color: transparent;
+    }
+  }
+
+  //inline-toolbar buttons
+  .inline-toolbar &,
+  .inline-toolbar &:backdrop {
+    border-radius: 2px;
+    border-width: 1px;
+    @extend %linked;
+  }
+
+  .linked:not(.vertical) > &,
+  .linked:not(.vertical) > &:hover,
+  .linked:not(.vertical) > &:active,
+  .linked:not(.vertical) > &:checked {
+    @extend %linked;
+  }
+
+  .linked.vertical > &,
+  .linked.vertical > &:hover,
+  .linked.vertical > &:active,
+  .linked.vertical > &:checked {
+    @extend %linked_vertical;
+  }
+}
+
+
+
+
+
+
+// all the following is for the +|- buttons on inline toolbars, that way
+// should really be deprecated...
+.inline-toolbar toolbutton > button {
+  // redefining the button look is
+  // needed since those are flat...
+  @include button(normal);
+  &:hover {
+    @include button(hover);
+  }
+  &:active,
+  &:checked {
+    @include button(active);
+  }
+  &:disabled {
+    @include button(insensitive);
+  }
+  &:disabled:active,
+  &:disabled:checked {
+    @include button(insensitive-active);
+  }
+}
+
+// More inline toolbar buttons
+toolbar.inline-toolbar toolbutton {
+  & > button.flat {
+    @extend %linked_middle;
+  }
+  &:first-child > button.flat {
+    @extend %linked_left;
+  }
+  &:last-child > button.flat {
+    @extend %linked_right;
+  }
+  &:only-child > button.flat {
+    @extend %linked_only_child;
+  }
+}
+
+%linked_middle {
+  border-radius: 0;
+  border-right-style: none;
+}
+
+%linked_left {
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+%linked_right {
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-right-style: solid;
+}
+
+%linked_only_child {
+  border-radius: 3px;
+  border-style: solid;
+}
+
+%linked {
+  @extend %linked_middle;
+
+  &:first-child {
+    @extend %linked_left;
+  }
+  &:last-child {
+    @extend %linked_right;
+  }
+  &:only-child {
+    @extend %linked_only_child;
+  }
+}
+
+%linked_vertical_middle {
+  border-radius: 0;
+  border-bottom-style: none;
+}
+
+%linked_vertical_top {
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+%linked_vertical_bottom {
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  border-bottom-style: solid;
+}
+
+%linked_vertical_only_child {
+  border-radius: 3px;
+  border-style: solid;
+}
+
+%linked_vertical {
+  @extend %linked_vertical_middle;
+
+  &:first-child {
+    @extend %linked_vertical_top;
+  }
+  &:last-child {
+    @extend %linked_vertical_bottom;
+  }
+  &:only-child {
+    @extend %linked_vertical_only_child;
+  }
+}
+
+%undecorated_button {
+  border-color: transparent;
+  background-color: transparent;
+  background-image: none;
+  box-shadow: none;
+}
+
+// menu buttons
+menuitem.button.flat,
+modelbutton.flat {
+  transition: none;
+  min-height: 24px;
+  padding-left: 8px;
+  padding-right: 8px;
+  outline-offset: -3px;
+  border-radius: 2px;
+
+  @extend %undecorated_button;
+
+  &:hover {
+    background-color: $menu_selected_bg_color;
+  }
+  &:active,
+  &:selected {
+    &,
+    arrow {
+      background-color: $menu_selected_bg_color;
+    }
+  }
+  &:checked {
+    color: $fg_color;
+  }
+
+  // FIXME: temporary workaround
+  check:last-child,
+  radio:last-child {
+    margin-left: 8px;
+  }
+
+  check:first-child,
+  radio:first-child {
+    margin-right: 8px;
+  }
+}
+
+modelbutton.flat arrow {
+  &.left {
+    -gtk-icon-source: -gtk-icontheme('pan-start-symbolic');
+  }
+  &.right {
+    -gtk-icon-source: -gtk-icontheme('pan-end-symbolic');
+  }
+}
+
+//
+// Links
+//
+%link,
+*:link {
+  color: $link_color;
+
+  &:visited {
+    color: $link_visited_color;
+    *:selected & {
+      color: mix($selected_fg_color, $selected_bg_color, 60%);
+    }
+  }
+  &:hover {
+    color: lighten($link_color, 10%);
+    *:selected & {
+      color: mix($selected_fg_color, $selected_bg_color, 90%);
+    }
+  }
+  &:active {
+    color: $link_color;
+    *:selected & {
+      color: mix($selected_fg_color, $selected_bg_color, 80%);
+    }
+  }
+
+  @at-root %link_selected,
+    &:selected,
+    *:selected & {
+    color: mix($selected_fg_color, $selected_bg_color, 80%);
+  }
+}
+
+button:link,
+button:visited {
+  @extend %undecorated_button;
+  @extend %link;
+
+  &:hover,
+  &:active,
+  &:checked {
+    @extend %undecorated_button;
+  }
+  > label {
+    text-decoration-line: underline;
+  }
+}
+
+//
+// Spinbuttons
+//
+spinbutton {
+  &:drop(active) {
+    box-shadow: none;
+  }
+
+  // button:active { color: $selected_fg_color; }
+  &:disabled {
+    color: $insensitive_fg_color;
+  }
+
+  &:not(.vertical) {
+    entry {
+      min-width: 28px;
+    }
+
+    button,
+    entry {
+      @extend %linked;
+    }
+
+    &:dir(ltr) entry,
+    &:dir(rtl) button.up {
+      border-radius: 3px 0 0 3px;
+    }
+
+    > button + button {
+      border-left-style: none;
+    }
+
+    > button + button,
+    > button:hover:not(:active),
+    > button:hover + button {
+      box-shadow: inset 1px 0 $button_border;
+    }
+
+    > button:disabled + button:not(:disabled):not(:active):not(:checked):not(:hover),
+    > button:not(:disabled):not(:active):not(:checked):not(:hover) + button:disabled {
+      box-shadow: inset 1px 0 transparentize($button_border, 0.5);
+    }
+
+    > button:first-child:hover:not(:active),
+    > button.up:dir(rtl):hover:not(:active),
+    > entry + button:not(:active):hover {
+      box-shadow: none;
+    }
+
+    > entry:focus + button {
+      border-left-color: $entry_border;
+    }
+
+    > entry:drop(active) + button {
+      border-left-color: $drop_target_color;
+    }
+
+    .osd & {
+      > button:hover:not(:active),
+      > button:hover + button {
+        box-shadow: inset 1px 0 $osd_button_border;
+      }
+
+      > button:first-child:hover:not(:active),
+      > button.up:dir(rtl):hover:not(:active),
+      > entry + button:not(:active):hover {
+        box-shadow: none;
+      }
+
+      > entry:focus + button {
+        border-left-color: $osd_button_border;
+      }
+    }
+  }
+
+  &.vertical {
+    button,
+    entry {
+      padding-left: 4px;
+      padding-right: 4px;
+      min-width: 0;
+
+      @extend %linked_vertical;
+    }
+
+    button.up {
+      border-radius: 3px 3px 0 0;
+    }
+
+    > entry:focus + button {
+      border-top-color: $entry_border;
+    }
+
+    > entry:drop(active) + button {
+      border-top-color: $drop_target_color;
+    }
+  }
+}

@@ -1,0 +1,38 @@
+
+
+
+//
+// Misc
+//
+//content view (grid/list)
+.content-view {
+  background-color: $base_color;
+  &:hover {
+    -gtk-icon-effect: highlight;
+  }
+  rubberband {
+    @extend rubberband;
+  }
+}
+
+.scale-popup {
+  .osd & {
+    @extend %osd;
+  }
+
+  button {
+    &:hover {
+      // +/- buttons on GtkVolumeButton popup
+      @include button(hover);
+    }
+  }
+}
+
+// Decouple the font of context menus from their entry/textview
+.touch-selection,
+.context-menu {
+  font: initial;
+}
+.monospace {
+  font-family: Monospace;
+}

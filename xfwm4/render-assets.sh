@@ -17,13 +17,12 @@ mkdir -p $ASSETS_DIR
 
 for i in `cat $INDEX`
 do
-if ! [ -f $ASSETS_DIR/$i.png ]; then
-    echo Rendering $ASSETS_DIR/$i.png
+  echo Rendering $ASSETS_DIR/$i.png
 
-    $INKSCAPE --export-id=$i \
-              --export-id-only \
-              --export-png=$ASSETS_DIR/$i.png $SRC_FILE >/dev/null
-    $OPTIPNG -o7 --quiet $ASSETS_DIR/$i.png
-fi
+  $INKSCAPE --export-id=$i \
+            --export-id-only \
+            --export-type=png \
+            -o $ASSETS_DIR/$i.png $SRC_FILE >/dev/null
+  $OPTIPNG -o7 --quiet $ASSETS_DIR/$i.png
 done
 exit 0

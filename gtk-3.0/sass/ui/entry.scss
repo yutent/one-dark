@@ -1,0 +1,146 @@
+$vert_padding: 5px;
+//
+// Text Entries
+//
+entry {
+  border: 1px solid;
+  padding: 5px 8px;
+
+  caret-color: currentColor;
+  border-radius: 3px;
+  transition: all 200ms $ease-out-quad;
+
+  &.search {
+    border-radius: 4px;
+  }
+
+  @include entry(normal);
+
+  image {
+    // icons inside the entry
+    color: mix($fg_color, $base_color, 80%);
+
+    &.left {
+      padding-left: 0;
+      padding-right: 5px;
+    }
+    &.right {
+      padding-right: 0;
+      padding-left: 5px;
+    }
+  }
+
+  &.flat {
+    &,
+    &:focus {
+      padding: 2px;
+      @include entry(normal);
+      border: none;
+      border-radius: 0;
+    }
+  }
+
+  &:focus {
+    background-clip: border-box;
+    @include entry(focus);
+  }
+
+  &:disabled {
+    @include entry(insensitive);
+  }
+
+  selection {
+    &:focus,
+    & {
+      @extend %selected_items;
+    }
+  }
+
+  @each $e_type, $e_color, $e_fg_color in (warning, $warning_color, $warning_fg_color),
+    (error, $error_color, $error_fg_color),
+    // entry.search-missing for Gnome-Builder
+    (search-missing, $error_color, $error_fg_color)
+  {
+    &.#{$e_type} {
+      color: $e_fg_color;
+      border-color: $entry_border;
+      background-color: mix($e_color, $base_color, 60%);
+
+      image {
+        color: $e_fg_color;
+      }
+
+      &:focus {
+        color: $e_fg_color;
+        background-color: $e_color;
+        box-shadow: none;
+      }
+      selection,
+      selection:focus {
+        background-color: $e_fg_color;
+        color: $e_color;
+      }
+    }
+  }
+
+  &:drop(active) {
+    &:focus,
+    & {
+      border-color: $drop_target_color;
+      box-shadow: none;
+    }
+  }
+
+  .osd & {
+    @include entry(osd);
+    &:focus {
+      @include entry(osd-focus);
+    }
+    &:disabled {
+      @include entry(osd-insensitive);
+    }
+
+    selection {
+      &:focus,
+      & {
+        color: $selected_bg_color;
+        background-color: $selected_fg_color;
+      }
+    }
+  }
+
+  progress {
+    margin: 0 -6px;
+    border-radius: 0;
+    border-width: 0 0 2px;
+    border-color: $selected_bg_color;
+    border-style: solid;
+    background-image: none;
+    background-color: transparent;
+    box-shadow: none;
+  }
+
+  // linkded entries
+  .linked:not(.vertical) > &,
+  .linked:not(.vertical) > &:focus {
+    @extend %linked;
+  }
+
+  .linked.vertical > &,
+  .linked.vertical > &:focus {
+    @extend %linked_vertical;
+  }
+}
+
+treeview entry {
+  &.flat,
+  & {
+    border-radius: 0;
+    background-image: none;
+    background-color: $base_color;
+
+    &:focus {
+      border-color: $selected_bg_color;
+    }
+  }
+}

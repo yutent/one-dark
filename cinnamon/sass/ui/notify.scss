@@ -14,7 +14,7 @@
 
   .popup-menu & {
     color: $fg_color;
-    border-image: url('#{$asset_path}/misc/message.svg') 9 9 9 9;
+    border-image: url('assets/misc/message.svg') 9 9 9 9;
 
     .notification-button,
     .notification-icon-button {

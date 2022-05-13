@@ -34,19 +34,19 @@
   StBin {
     width: 16px;
     height: 16px;
-    background-image: url('#{$asset_path}/checkbox/checkbox-unchecked.svg');
+    background-image: url('assets/checkbox/checkbox-unchecked.svg');
   }
 
   &:focus StBin {
-    background-image: url('#{$asset_path}/checkbox/checkbox-unchecked-focused.svg');
+    background-image: url('assets/checkbox/checkbox-unchecked-focused.svg');
   }
 
   &:checked StBin {
-    background-image: url('#{$asset_path}/checkbox/checkbox-checked.svg');
+    background-image: url('assets/checkbox/checkbox-checked.svg');
   }
 
   &:focus:checked StBin {
-    background-image: url('#{$asset_path}/checkbox/checkbox-checked-focused.svg');
+    background-image: url('assets/checkbox/checkbox-checked-focused.svg');
   }
 }
 
@@ -69,19 +69,19 @@
   StBin {
     width: 16px;
     height: 16px;
-    background-image: url('#{$asset_path}/checkbox/checkbox-unchecked.svg');
+    background-image: url('assets/checkbox/checkbox-unchecked.svg');
   }
 
   &:focus StBin {
-    background-image: url('#{$asset_path}/checkbox/checkbox-unchecked-focused.svg');
+    background-image: url('assets/checkbox/checkbox-unchecked-focused.svg');
   }
 
   &:checked StBin {
-    background-image: url('#{$asset_path}/checkbox/checkbox-checked.svg');
+    background-image: url('assets/checkbox/checkbox-checked.svg');
   }
 
   &:focus:checked StBin {
-    background-image: url('#{$asset_path}/checkbox/checkbox-checked-focused.svg');
+    background-image: url('assets/checkbox/checkbox-checked-focused.svg');
   }
 }
 
@@ -95,10 +95,10 @@
 
   &-us,
   &-intl {
-    background-image: url('#{$asset_path}/switch/switch-off.svg');
+    background-image: url('assets/switch/switch-off.svg');
 
     &:checked {
-      background-image: url('#{$asset_path}/switch/switch-on.svg');
+      background-image: url('assets/switch/switch-on.svg');
     }
   }
 }

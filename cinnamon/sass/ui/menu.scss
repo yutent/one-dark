@@ -5,7 +5,7 @@
   color: $fg_color;
   border: 0;
   border-radius: 12px;
-  background-color: transparentize($bg_color, 0.1);
+  background-color: transparentize($bg_color, 0.05);
 }
 
 .popup-sub-menu {
@@ -120,8 +120,8 @@
   &-favorites-box {
     padding: 10px;
     transition-duration: 300;
-    background-color: transparentize($base_color, 0.7);
-    border: 0;
+    background-color: transparentize($base_color, 0.5);
+    border: 1px solid transparentize($grey_color, .5);
     border-radius: 6px;
   }
 
@@ -244,11 +244,12 @@
 #menu-search-entry {
   width: 220px;
   min-height: 16px;
+  margin-right:10px;
   font-weight: normal;
-  border: 0;
+  border: 1px solid $grey_color;
   border-radius: 6px;
   caret-color: $fg_color;
-  background-color: transparentize($grey_color, 0.35);
+  background-color: $base_color;
   @extend %entry;
 
   &:focus,
@@ -259,6 +260,7 @@
 
 .menu-search-entry-icon {
   icon-size: 1em;
+  margin-right:6px;
   color: $fg_color;
 }
 

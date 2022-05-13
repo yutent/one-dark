@@ -175,16 +175,16 @@ StScrollBar StButton#hhandle:active {
 .check-box StBin {
   width: 16px;
   height: 16px;
-  background-image: url("dark-assets/checkbox/checkbox-unchecked.svg");
+  background-image: url("assets/checkbox/checkbox-unchecked.svg");
 }
 .check-box:focus StBin {
-  background-image: url("dark-assets/checkbox/checkbox-unchecked-focused.svg");
+  background-image: url("assets/checkbox/checkbox-unchecked-focused.svg");
 }
 .check-box:checked StBin {
-  background-image: url("dark-assets/checkbox/checkbox-checked.svg");
+  background-image: url("assets/checkbox/checkbox-checked.svg");
 }
 .check-box:focus:checked StBin {
-  background-image: url("dark-assets/checkbox/checkbox-checked-focused.svg");
+  background-image: url("assets/checkbox/checkbox-checked-focused.svg");
 }
 
 .radiobutton CinnamonGenericContainer {
@@ -200,16 +200,16 @@ StScrollBar StButton#hhandle:active {
 .radiobutton StBin {
   width: 16px;
   height: 16px;
-  background-image: url("dark-assets/checkbox/checkbox-unchecked.svg");
+  background-image: url("assets/checkbox/checkbox-unchecked.svg");
 }
 .radiobutton:focus StBin {
-  background-image: url("dark-assets/checkbox/checkbox-unchecked-focused.svg");
+  background-image: url("assets/checkbox/checkbox-unchecked-focused.svg");
 }
 .radiobutton:checked StBin {
-  background-image: url("dark-assets/checkbox/checkbox-checked.svg");
+  background-image: url("assets/checkbox/checkbox-checked.svg");
 }
 .radiobutton:focus:checked StBin {
-  background-image: url("dark-assets/checkbox/checkbox-checked-focused.svg");
+  background-image: url("assets/checkbox/checkbox-checked-focused.svg");
 }
 
 .toggle-switch {
@@ -218,10 +218,10 @@ StScrollBar StButton#hhandle:active {
   background-size: contain;
 }
 .toggle-switch-us, .toggle-switch-intl {
-  background-image: url("dark-assets/switch/switch-off.svg");
+  background-image: url("assets/switch/switch-off.svg");
 }
 .toggle-switch-us:checked, .toggle-switch-intl:checked {
-  background-image: url("dark-assets/switch/switch-on.svg");
+  background-image: url("assets/switch/switch-on.svg");
 }
 
 .cinnamon-link {
@@ -571,41 +571,41 @@ StScrollBar StButton#hhandle:active {
 }
 
 .calendar-change-month-back {
-  background-image: url("common-assets/misc/calendar-arrow-left.svg");
+  background-image: url("assets/misc/calendar-arrow-left.svg");
 }
 .calendar-change-month-back:focus, .calendar-change-month-back:hover {
-  background-image: url("common-assets/misc/calendar-arrow-left-hover.svg");
+  background-image: url("assets/misc/calendar-arrow-left-hover.svg");
 }
 .calendar-change-month-back:active {
-  background-image: url("common-assets/misc/calendar-arrow-left.svg");
+  background-image: url("assets/misc/calendar-arrow-left.svg");
 }
 .calendar-change-month-back:rtl {
-  background-image: url("common-assets/misc/calendar-arrow-right.svg");
+  background-image: url("assets/misc/calendar-arrow-right.svg");
 }
 .calendar-change-month-back:rtl:focus, .calendar-change-month-back:rtl:hover {
-  background-image: url("common-assets/misc/calendar-arrow-right-hover.svg");
+  background-image: url("assets/misc/calendar-arrow-right-hover.svg");
 }
 .calendar-change-month-back:rtl:active {
-  background-image: url("common-assets/misc/calendar-arrow-right.svg");
+  background-image: url("assets/misc/calendar-arrow-right.svg");
 }
 
 .calendar-change-month-forward {
-  background-image: url("common-assets/misc/calendar-arrow-right.svg");
+  background-image: url("assets/misc/calendar-arrow-right.svg");
 }
 .calendar-change-month-forward:focus, .calendar-change-month-forward:hover {
-  background-image: url("common-assets/misc/calendar-arrow-right-hover.svg");
+  background-image: url("assets/misc/calendar-arrow-right-hover.svg");
 }
 .calendar-change-month-forward:active {
-  background-image: url("common-assets/misc/calendar-arrow-right.svg");
+  background-image: url("assets/misc/calendar-arrow-right.svg");
 }
 .calendar-change-month-forward:rtl {
-  background-image: url("common-assets/misc/calendar-arrow-left.svg");
+  background-image: url("assets/misc/calendar-arrow-left.svg");
 }
 .calendar-change-month-forward:rtl:focus, .calendar-change-month-forward:rtl:hover {
-  background-image: url("common-assets/misc/calendar-arrow-left-hover.svg");
+  background-image: url("assets/misc/calendar-arrow-left-hover.svg");
 }
 .calendar-change-month-forward:rtl:active {
-  background-image: url("common-assets/misc/calendar-arrow-left.svg");
+  background-image: url("assets/misc/calendar-arrow-left.svg");
 }
 
 .calendar-day-event-dot-box {
@@ -631,16 +631,14 @@ StScrollBar StButton#hhandle:active {
 }
 .calendar-day-base:hover {
   color: #f2f5fc;
-  background-color: rgba(100, 181, 246, 0.35);
-  background-color: rgba(100, 181, 246, 0.15);
+  border-color: rgba(100, 181, 246, 0.35);
 }
 
 .calendar-day-heading {
   color: #f2f5fc;
   margin-top: 16px;
   margin-bottom: 0;
-  font-size: 1.2em;
-  font-weight: bold;
+  font-size: 1.1em;
 }
 
 .calendar-today {
@@ -895,7 +893,7 @@ StScrollBar StButton#hhandle:active {
 }
 .popup-menu #notification {
   color: #ced6e0;
-  border-image: url("dark-assets/misc/message.svg") 9 9 9 9;
+  border-image: url("assets/misc/message.svg") 9 9 9 9;
 }
 .popup-menu #notification .notification-button,
 .popup-menu #notification .notification-icon-button {
@@ -1006,11 +1004,11 @@ StScrollBar StButton#hhandle:active {
 .ripple-box {
   width: 104px;
   height: 104px;
-  background-image: url("common-assets/misc/corner-ripple.svg");
+  background-image: url("assets/misc/corner-ripple.svg");
   background-size: contain;
 }
 .ripple-box:rtl {
-  background-image: url("common-assets/misc/corner-ripple.svg");
+  background-image: url("assets/misc/corner-ripple.svg");
 }
 
 .lightbox {
@@ -1234,7 +1232,7 @@ StScrollBar StButton#hhandle:active {
   color: #ced6e0;
   border: 0;
   border-radius: 12px;
-  background-color: rgba(87, 96, 111, 0.9);
+  background-color: rgba(87, 96, 111, 0.95);
 }
 
 .popup-sub-menu {
@@ -1336,8 +1334,8 @@ StScrollBar StButton#hhandle:active {
 .menu-favorites-box {
   padding: 10px;
   transition-duration: 300;
-  background-color: rgba(60, 77, 94, 0.3);
-  border: 0;
+  background-color: rgba(60, 77, 94, 0.5);
+  border: 1px solid rgba(134, 144, 155, 0.5);
   border-radius: 6px;
 }
 .menu-favorites-button {
@@ -1434,14 +1432,16 @@ StScrollBar StButton#hhandle:active {
 #menu-search-entry {
   width: 220px;
   min-height: 16px;
+  margin-right: 10px;
   font-weight: normal;
-  border: 0;
+  border: 1px solid #86909b;
   border-radius: 6px;
   caret-color: #ced6e0;
-  background-color: rgba(134, 144, 155, 0.65);
+  background-color: #3c4d5e;
 }
 .menu-search-entry-icon {
   icon-size: 1em;
+  margin-right: 6px;
   color: #ced6e0;
 }
 
@@ -1668,10 +1668,10 @@ StScrollBar StButton#hhandle:active {
 }
 
 #overview-corner {
-  background-image: url("common-assets/misc/overview.png");
+  background-image: url("assets/misc/overview.png");
 }
 #overview-corner:hover {
-  background-image: url("common-assets/misc/overview-hover.png");
+  background-image: url("assets/misc/overview-hover.png");
 }
 
 .applet-separator {

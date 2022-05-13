@@ -1,0 +1,211 @@
+
+//
+// Menus
+//
+menubar,
+.menubar {
+  -GtkWidget-window-dragging: true;
+  padding: 0px;
+  background-color: $header_bg;
+  color: $header_fg;
+
+  &:backdrop {
+    color: transparentize($header_fg, 0.3);
+    //background-color: opacify($header_bg_backdrop, 1);
+  }
+
+  > menuitem {
+    padding: 6px 8px;
+    border: solid transparent;
+    border-width: 0;
+
+    &:hover {
+      //Seems like it :hover even with keyboard focus
+      background-color: $menu_selected_bg_color;
+      color: $fg_color;
+    }
+    &:disabled {
+      color: transparentize($header_fg, 0.6);
+      border-color: transparent;
+    }
+
+    > label:disabled {
+      color: transparentize($header_fg, 0.45);
+    }
+  }
+}
+
+menu,
+.menu {
+  $_menu_bg: $bg_color;
+  margin: 4px;
+  padding: 0;
+  border-radius: 0;
+  background-color: $_menu_bg;
+  border: 1px solid $borders_color;
+
+  .csd & {
+    padding: 4px 0px;
+    border-radius: 2px;
+    border: none;
+  }
+
+  separator,
+  .csd & separator {
+    margin: 2px 0;
+    background-color: $separator_color;
+  }
+
+  // Firefox workaround
+  .separator:not(label),
+  .csd & .separator:not(label) {
+    color: $_menu_bg;
+  }
+  // Firefox workaround end
+
+  menuitem {
+    min-height: 16px;
+    min-width: 40px;
+    padding: 5px;
+
+    &:hover {
+      color: $fg_color;
+      background-color: $menu_selected_bg_color;
+    }
+    &:disabled {
+      color: $insensitive_fg_color;
+    }
+
+    //submenu indicators
+    arrow {
+      min-height: 16px;
+      min-width: 16px;
+
+      &:dir(ltr) {
+        -gtk-icon-source: -gtk-icontheme('pan-end-symbolic');
+        margin-left: 10px;
+      }
+      &:dir(rtl) {
+        -gtk-icon-source: -gtk-icontheme('pan-end-symbolic-rtl');
+        margin-right: 10px;
+      }
+    }
+    @at-root menuitem {
+      accelerator {
+        color: gtkalpha(currentColor, 0.55);
+      }
+
+      check,
+      radio {
+        min-height: 16px;
+        min-width: 16px;
+        &:dir(ltr) {
+          margin-right: 6px;
+          margin-left: 2px;
+        }
+        &:dir(rtl) {
+          margin-left: 6px;
+          margin-right: 2px;
+        }
+      }
+    }
+  }
+
+  // overflow buttons
+  > arrow {
+    @include button(undecorated);
+    min-width: 16px;
+    min-height: 16px;
+    padding: 4px;
+    background-color: $_menu_bg;
+    border-radius: 0;
+
+    &.top {
+      margin-top: -6px;
+      border-bottom: 1px solid mix($fg_color, $base_color, 10%);
+      -gtk-icon-source: -gtk-icontheme('pan-up-symbolic');
+    }
+    &.bottom {
+      margin-bottom: -6px;
+      border-top: 1px solid mix($fg_color, $base_color, 10%);
+      -gtk-icon-source: -gtk-icontheme('pan-down-symbolic');
+    }
+    &:hover {
+      background-color: mix($fg_color, $base_color, 10%);
+    }
+    &:disabled {
+      color: transparent;
+      background-color: transparent;
+      border-color: transparent;
+    }
+  }
+}
+
+.csd .popup {
+  border-radius: 2px;
+}
+
+//
+// Popovers
+//
+popover,
+popover.background {
+  $_popover_bg: $bg_color;
+  padding: 2px;
+  // border: 1px solid darken($borders_color, 5%);
+  border-radius: 3px;
+  background-clip: border-box;
+  background-color: $_popover_bg;
+
+  box-shadow: 0 2px 6px 1px transparentize(black, 0.65);
+
+  .csd &,
+  & {
+    border: 1px solid darken($borders_color, 5%);
+  }
+
+  & separator {
+    background-color: $_popover_bg;
+  }
+  label.separator {
+    @extend .dim-label;
+
+    color: $fg_color;
+  }
+
+  > list,
+  > .view,
+  > toolbar {
+    border-style: none;
+    background-color: transparent;
+  }
+
+  &,
+  .csd & {
+    &.osd,
+    &.magnifier {
+      @extend %osd;
+    }
+    &.touch-selection {
+      @extend .context-menu;
+    }
+
+    &.osd {
+      @extend %osd;
+    }
+  }
+}
+
+//touch selection handlebars for the Popover.osd above
+cursor-handle {
+  background-color: transparent;
+  background-image: none;
+  box-shadow: none;
+  border-style: none;
+  &.top {
+    -gtk-icon-source: -gtk-icontheme('selection-start-symbolic');
+  }
+  &.bottom {
+    -gtk-icon-source: -gtk-icontheme('selection-end-symbolic');
+  }
+}

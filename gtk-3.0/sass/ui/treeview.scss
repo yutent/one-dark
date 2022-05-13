@@ -1,0 +1,162 @@
+//
+// Tree Views
+//
+treeview.view {
+  @at-root * {
+    -GtkTreeView-horizontal-separator: 4;
+    -GtkTreeView-grid-line-width: 1;
+    -GtkTreeView-grid-line-pattern: '';
+    -GtkTreeView-tree-line-width: 1;
+    -GtkTreeView-tree-line-pattern: '';
+    -GtkTreeView-expander-size: 16;
+  }
+
+  border-left-color: transparentize($fg_color, 0.85); // this is actually the tree lines color,
+  border-top-color: transparentize(
+    black,
+    0.9
+  ); // while this is the grid lines color, better then nothing
+
+  rubberband {
+    @extend rubberband;
+  } // to avoid borders being overridden by the previously set props
+
+  acceleditor > label {
+    background-color: $selected_bg_color;
+  }
+
+  &:selected {
+    &,
+    &:focus {
+      border-radius: 0;
+      border-left-color: mix($selected_fg_color, $selected_bg_color, 50%);
+      border-top-color: transparentize($fg_color, 0.9); // doesn't work unfortunatelly
+
+      @extend %selected_items;
+    }
+  }
+
+  &:disabled {
+    color: $insensitive_fg_color;
+
+    &:selected {
+      color: mix($selected_fg_color, $selected_bg_color, 40%);
+    }
+  }
+
+  &.separator {
+    min-height: 2px;
+    color: transparentize(black, 0.9);
+  }
+
+  &:drop(active) {
+    border-style: solid none;
+    border-width: 1px;
+    border-color: mix($fg_color, $selected_bg_color, 50%);
+
+    &.after {
+      border-top-style: none;
+    }
+    &.before {
+      border-bottom-style: none;
+    }
+  }
+
+  &.expander {
+    -gtk-icon-source: -gtk-icontheme('pan-end-symbolic');
+    &:dir(rtl) {
+      -gtk-icon-source: -gtk-icontheme('pan-end-symbolic-rtl');
+    }
+
+    color: mix($fg_color, $base_color, 50%);
+
+    &:hover {
+      color: $fg_color;
+    }
+
+    &:selected {
+      color: mix($selected_fg_color, $selected_bg_color, 70%);
+      &:hover {
+        color: $selected_fg_color;
+      }
+    }
+
+    &:checked {
+      -gtk-icon-source: -gtk-icontheme('pan-down-symbolic');
+    }
+  }
+
+  &.progressbar,
+  &.progressbar:focus {
+    // progress bar in treeviews
+    color: $selected_fg_color;
+    border-radius: 2px;
+    background-color: $selected_bg_color;
+
+    &:selected,
+    &:selected:focus {
+      color: $selected_bg_color;
+      box-shadow: none;
+      background-color: $selected_fg_color;
+    }
+  }
+  &.trough {
+    // progress bar trough in treeviews
+    color: $fg_color;
+    background-color: $trough_color_treeview;
+    border-radius: 2px;
+    border: 1px solid $button_border;
+
+    &:selected,
+    &:selected:focus {
+      color: $selected_fg_color;
+      background-color: transparentize(black, 0.8);
+      border-radius: 2px;
+      border-width: 0;
+    }
+  }
+
+  header {
+    button {
+      $_column_header_color: mix($fg_color, $base_color, 80%);
+
+      padding: 3px 6px;
+      font-weight: bold;
+
+      color: $_column_header_color;
+      background-color: darken($bg_color, 1%);
+      background-image: none;
+      border-style: none solid solid none;
+      border-radius: 0;
+      border-color: $borders_color;
+
+      &:active,
+      &:hover {
+        background-color: lighten($bg_color, 2%);
+      }
+      &:active:hover {
+        color: $fg_color;
+      }
+      &:disabled {
+        border-color: $bg_color;
+        background-image: none;
+      }
+      &:last-child {
+        border-right-style: none;
+      }
+    }
+  }
+
+  button.dnd,
+  header.button.dnd {
+    &,
+    &:selected,
+    &:hover,
+    &:active {
+      transition: none;
+      color: $selected_bg_color;
+      box-shadow: inset 1px 1px 0 1px $selected_bg_color, inset -1px 0 0 1px $selected_bg_color,
+        inset 1px 1px $base_color, inset -1px 0 $base_color;
+    }
+  }
+}
