@@ -1,15 +1,18 @@
 //
 // Tree Views
 //
+
 treeview.view {
   @at-root * {
-    -GtkTreeView-horizontal-separator: 4;
+    -GtkTreeView-horizontal-separator: 0;
     -GtkTreeView-grid-line-width: 1;
     -GtkTreeView-grid-line-pattern: '';
     -GtkTreeView-tree-line-width: 1;
     -GtkTreeView-tree-line-pattern: '';
-    -GtkTreeView-expander-size: 16;
+    // 树形菜单的小箭头, 设为0, 就不给折叠了
+    -GtkTreeView-expander-size: 0;
   }
+
 
   border-left-color: transparentize($fg_color, 0.85); // this is actually the tree lines color,
   border-top-color: transparentize(
@@ -64,6 +67,8 @@ treeview.view {
 
   &.expander {
     -gtk-icon-source: -gtk-icontheme('pan-end-symbolic');
+    background-color: #f30;
+
     &:dir(rtl) {
       -gtk-icon-source: -gtk-icontheme('pan-end-symbolic-rtl');
     }
@@ -117,6 +122,7 @@ treeview.view {
   }
 
   header {
+
     button {
       $_column_header_color: mix($fg_color, $base_color, 80%);
 
@@ -132,7 +138,7 @@ treeview.view {
 
       &:active,
       &:hover {
-        background-color: lighten($bg_color, 2%);
+        background-color: $highlight_color;
       }
       &:active:hover {
         color: $fg_color;

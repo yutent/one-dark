@@ -1,7 +1,7 @@
 //
 // Scrollbars
 //
-$_scrollbar_bg_color: transparentize($base_color, 0.7);
+$_scrollbar_bg_color: transparentize($base_color, 0.5);
 
 scrollbar {
   @at-root * {
@@ -16,19 +16,19 @@ scrollbar {
   transition: 300ms $ease-out-quad;
 
   &.top {
-    border-bottom: 1px solid $borders_color;
+    border-bottom: 1px solid $base_color;
   }
 
   &.bottom {
-    border-top: 1px solid $borders_color;
+    border-top: 1px solid $base_color;
   }
 
   &.left {
-    border-right: 1px solid $borders_color;
+    border-right: 1px solid $base_color;
   }
 
   &.right {
-    border-left: 1px solid $borders_color;
+    border-left: 1px solid $base_color;
   }
 
   button {

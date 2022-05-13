@@ -33,8 +33,8 @@ row:selected button.flat:disabled label {
 
 infobar.info button:hover, infobar.question button:hover, infobar.warning button:hover, infobar.error button:hover, row:selected button:hover {
   color: #f2f5fc;
-  background-color: rgba(242, 245, 252, 0.2);
-  border-color: rgba(242, 245, 252, 0.8);
+  background-color: rgba(100, 181, 246, 0.35);
+  border-color: rgba(100, 181, 246, 0.35);
 }
 .primary-toolbar toolbar.selection-mode button:active,
 .selection-mode.primary-toolbar button:active, .primary-toolbar .selection-mode.inline-toolbar button:active, headerbar.selection-mode button:active, .primary-toolbar toolbar.selection-mode button:checked,
@@ -177,8 +177,8 @@ textview border {
 
 rubberband, .content-view rubberband, treeview.view rubberband, flowbox rubberband,
 .rubberband {
-  border: 1px solid rgba(52, 158, 243, 0.35);
-  background-colo: #f30;
+  border: 1px solid rgba(100, 181, 246, 0.35);
+  background-color: rgba(100, 181, 246, 0.15);
 }
 
 flowbox flowboxchild {
@@ -1703,12 +1703,12 @@ treeview.view {
   border-top-color: rgba(0, 0, 0, 0.1);
 }
 * {
-  -GtkTreeView-horizontal-separator: 4;
+  -GtkTreeView-horizontal-separator: 0;
   -GtkTreeView-grid-line-width: 1;
   -GtkTreeView-grid-line-pattern: "";
   -GtkTreeView-tree-line-width: 1;
   -GtkTreeView-tree-line-pattern: "";
-  -GtkTreeView-expander-size: 16;
+  -GtkTreeView-expander-size: 0;
 }
 
 treeview.view acceleditor > label {
@@ -1742,6 +1742,7 @@ treeview.view:drop(active).before {
 }
 treeview.view.expander {
   -gtk-icon-source: -gtk-icontheme("pan-end-symbolic");
+  background-color: #f30;
   color: #85929f;
 }
 treeview.view.expander:dir(rtl) {
@@ -1792,7 +1793,7 @@ treeview.view header button {
   border-color: #86909b;
 }
 treeview.view header button:active, treeview.view header button:hover {
-  background-color: #5b6575;
+  background-color: #64b5f6;
 }
 treeview.view header button:active:hover {
   color: #ced6e0;
@@ -2193,7 +2194,7 @@ notebook > header button.flat {
 }
 
 scrollbar {
-  background-color: rgba(60, 77, 94, 0.3);
+  background-color: rgba(60, 77, 94, 0.5);
   transition: 300ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 * {
@@ -2203,16 +2204,16 @@ scrollbar {
 }
 
 scrollbar.top {
-  border-bottom: 1px solid #86909b;
+  border-bottom: 1px solid #3c4d5e;
 }
 scrollbar.bottom {
-  border-top: 1px solid #86909b;
+  border-top: 1px solid #3c4d5e;
 }
 scrollbar.left {
-  border-right: 1px solid #86909b;
+  border-right: 1px solid #3c4d5e;
 }
 scrollbar.right {
-  border-left: 1px solid #86909b;
+  border-left: 1px solid #3c4d5e;
 }
 scrollbar button {
   border: none;
@@ -2367,7 +2368,7 @@ scrolledwindow undershoot.right {
 scrolledwindow junction {
   border-color: transparent;
   border-image: linear-gradient(to bottom, #86909b 1px, transparent 1px) 0 0 0 1/0 1px stretch;
-  background-color: rgba(60, 77, 94, 0.3);
+  background-color: rgba(60, 77, 94, 0.5);
 }
 scrolledwindow junction:dir(rtl) {
   border-image-slice: 0 1 0 0;
