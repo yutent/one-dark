@@ -10,7 +10,7 @@ treeview.view {
     -GtkTreeView-tree-line-width: 1;
     -GtkTreeView-tree-line-pattern: '';
     // 树形菜单的小箭头, 设为0, 就不给折叠了
-    -GtkTreeView-expander-size: 0;
+    -GtkTreeView-expander-size: 16;
   }
 
 

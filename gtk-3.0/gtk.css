@@ -1708,7 +1708,7 @@ treeview.view {
   -GtkTreeView-grid-line-pattern: "";
   -GtkTreeView-tree-line-width: 1;
   -GtkTreeView-tree-line-pattern: "";
-  -GtkTreeView-expander-size: 0;
+  -GtkTreeView-expander-size: 16;
 }
 
 treeview.view acceleditor > label {

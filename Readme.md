@@ -2,8 +2,8 @@
 :root {
   /* primary */
   --color-teal-a: rgba(72, 201, 176, 0.35);
-  --color-teal-1: rgb(72, 201, 176);
-  --color-teal-2: rgb(26, 188, 156);
+  --color-teal-1: #48c9b0;
+  --color-teal-2: #1abc9c;
   --color-teal-3: rgb(22, 160, 133);
   /* success */
   --color-green-a: rgba(70, 221, 126, 0.35);
@@ -22,9 +22,9 @@
   --color-red-3: #f33e22;
   /* warning */
   --color-orange-a: rgba(255, 211, 66, 0.35);
-  --color-orange-1: rgb(255, 211, 66);
-  --color-orange-2: rgb(254, 196, 1);
-  --color-orange-3: rgb(245, 189, 7);
+  --color-orange-1: #ffd342;
+  --color-orange-2: #fec401;
+  --color-orange-3: #f5bd07;
   /* default1 */
   --color-plain-a: rgba(150, 204, 248, 0.35);
   --color-plain-a: #96ccf859;
