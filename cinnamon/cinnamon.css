@@ -761,17 +761,17 @@ StScrollBar StButton#hhandle:active {
   padding: 8px;
 }
 .workspace-add-button {
-  background-image: url("common-assets/misc/add-workspace.svg");
+  background-image: url("assets/misc/add-workspace.svg");
   height: 200px;
   width: 35px;
   transition-duration: 100;
 }
 .workspace-add-button:hover {
-  background-image: url("common-assets/misc/add-workspace-hover.svg");
+  background-image: url("assets/misc/add-workspace-hover.svg");
   transition-duration: 100;
 }
 .workspace-add-button:active {
-  background-image: url("common-assets/misc/add-workspace-active.svg");
+  background-image: url("assets/misc/add-workspace-active.svg");
   transition-duration: 100;
 }
 .workspace-overview-background-shade {
@@ -780,7 +780,7 @@ StScrollBar StButton#hhandle:active {
 
 .workspace-close-button,
 .window-close {
-  background-image: url("common-assets/misc/close.svg");
+  background-image: url("assets/misc/close.svg");
   background-size: 26px;
   height: 26px;
   width: 26px;
@@ -788,21 +788,21 @@ StScrollBar StButton#hhandle:active {
 }
 .workspace-close-button:hover,
 .window-close:hover {
-  background-image: url("common-assets/misc/close-hover.svg");
+  background-image: url("assets/misc/close-hover.svg");
   background-size: 26px;
   height: 26px;
   width: 26px;
 }
 .workspace-close-button:active,
 .window-close:active {
-  background-image: url("common-assets/misc/close-active.svg");
+  background-image: url("assets/misc/close-active.svg");
   background-size: 26px;
   height: 26px;
   width: 26px;
 }
 
 .window-close-area {
-  background-image: url("common-assets/misc/trash-icon.svg");
+  background-image: url("assets/misc/trash-icon.svg");
   height: 120px;
   width: 400px;
 }

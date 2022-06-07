@@ -1,9 +1,9 @@
 style "menubar" {
 
-  bg[NORMAL] = "#2b2b2b"
-  fg[NORMAL] = "#dadada"
-  fg[PRELIGHT] = "#dadada"
-  fg[ACTIVE] = "#dadada"
+  bg[NORMAL] = "#57606f"
+  fg[NORMAL] = "#ced6e0"
+  fg[PRELIGHT] = "#f2f5fc"
+  fg[ACTIVE] = "#f2f5fc"
   fg[SELECTED] = @fg_color
   fg[INSENSITIVE] = shade(0.7, "#dadada")
 
@@ -23,7 +23,7 @@ style "menubar" {
 
 style "menubar-borderless" {
 
-  bg[NORMAL] = "#2b2b2b"
+  bg[NORMAL] = "#57606f"
   fg[NORMAL] = "#dadada"
   fg[SELECTED] = @fg_color
   fg[INSENSITIVE] = shade(0.7, "#dadada")
@@ -128,8 +128,8 @@ style "toolbar_button" {
 style "toolbar_entry" {
   xthickness = 6
 
-  base[NORMAL] = "#414141"
-  base[INSENSITIVE] = "#393939"
+  base[NORMAL] = "#3c4d5e"
+  base[INSENSITIVE] = "#3c4d5e"
 
   text[NORMAL] = "#dadada"
 
