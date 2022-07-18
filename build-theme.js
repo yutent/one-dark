@@ -16,6 +16,8 @@ const CINNAMON_SCSS = './cinnamon/sass/cinnamon.scss'
 const CINNAMON_STYLE = './cinnamon/cinnamon.css'
 const GTK3_SCSS = './gtk-3.0/sass/gtk.scss'
 const GTK3_STYLE = './gtk-3.0/gtk.css'
+// const GTK3_2_SCSS = './gtk-3.20/gtk.scss'
+// const GTK3_2_STYLE = './gtk-3.20/gtk.css'
 
 function render(file) {
   try {
@@ -60,6 +62,10 @@ chokidar
             let style = render(GTK3_SCSS)
             fs.echo(style, GTK3_STYLE)
           }
+          // {
+          //   let style = render(GTK3_2_SCSS)
+          //   fs.echo(style, GTK3_2_STYLE)
+          // }
 
           console.log('更新 Gtk3 完成!!!')
           console.log()

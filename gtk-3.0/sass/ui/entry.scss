@@ -103,8 +103,8 @@ entry {
     selection {
       &:focus,
       & {
-        color: $selected_bg_color;
-        background-color: $selected_fg_color;
+        color: $selected_fg_color;
+        background-color: $selected_bg_color;
       }
     }
   }

@@ -317,12 +317,12 @@ NautilusListView .view {
   }
 
   .places-treeview {
-    -nemoplacestreeview-disk-full-bg-color: $dark_sidebar_fg;
-    -nemoplacestreeview-disk-full-fg-color: darken($selected_bg_color, 10%);
-    -GtkTreeView-vertical-separator: 7;
+    -NemoPlacesTreeView-disk-full-bg-color: $progress_bg_color;
+    -NemoPlacesTreeView-disk-full-fg-color: $progress_color;
+    -GtkTreeView-vertical-separator: 5;
 
     .view.cell:hover {
-      background-color: transparentize($dark_sidebar_fg, 0.75);
+      background-color: $selected_bg_color;
     }
   }
 

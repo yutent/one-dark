@@ -1,0 +1,40 @@
+//
+// Calendar
+//
+calendar {
+  color: $fg_color;
+  border: 1px solid $borders_color;
+  border-radius: 3px;
+  padding: 2px;
+
+  &:selected {
+    background-color: $selected_bg_color;
+    color: $selected_fg_color;
+    border-radius: 1.5px;
+  }
+  &.header {
+    color: $fg_color;
+    border: none;
+    border-radius: 0;
+  }
+  &.button,
+  &.button:focus {
+    color: transparentize($fg_color, 0.55);
+    @include button(undecorated);
+
+    &:hover {
+      color: $fg_color;
+    }
+    &:disabled {
+      color: $insensitive_fg_color;
+      background-color: transparent;
+      background-image: none;
+    }
+  }
+  &:indeterminate {
+    color: gtkalpha(currentColor, 0.55);
+  }
+  &.highlight {
+    color: $fg_color;
+  }
+}

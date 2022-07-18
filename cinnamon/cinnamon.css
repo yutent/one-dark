@@ -1808,19 +1808,19 @@ StScrollBar StButton#hhandle:active {
 }
 
 .tile-preview {
-  background-color: rgba(100, 181, 246, 0);
+  background-color: rgba(100, 181, 246, 0.15);
   border: 1px solid rgba(100, 181, 246, 0.35);
 }
 .tile-preview.snap {
-  background-color: rgba(100, 181, 246, 0);
+  background-color: rgba(100, 181, 246, 0.15);
 }
 
 .tile-hud {
-  background-color: rgba(100, 181, 246, 0);
+  background-color: rgba(100, 181, 246, 0.15);
   border: 1px solid rgba(100, 181, 246, 0.35);
 }
 .tile-hud.snap {
-  background-color: rgba(100, 181, 246, 0);
+  background-color: rgba(100, 181, 246, 0.15);
 }
 .tile-hud:top {
   border-top-width: 0px;

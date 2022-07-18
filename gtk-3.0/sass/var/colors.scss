@@ -12,14 +12,14 @@ $fg_color: #ced6e0;
 
 $grey_color: #86909b;
 
-$selected_bg_color: rgba(100, 181, 246, 0.35);
+$selected_bg_color: rgba(100, 181, 246, .35);
 $selected_fg_color: #f2f5fc;
 
 $highlight_color: #64b5f6;
 
 $selected_borders_color: darken($selected_bg_color, 15%);
-$borders_color: $grey_color;
-$separator_color: transparentize($grey_color, .5);
+$borders_color: lighten($bg_color, 10%);
+$separator_color: transparentize($grey_color, 0.5);
 
 $link_color: #64b5f6;
 $link_visited_color: #2196f3;
@@ -35,6 +35,12 @@ $success_color: rgb(70, 221, 126);
 $destructive_color: #ff5f45;
 $suggested_color: rgb(26, 196, 88);
 $question_color: #64b5f6;
+$focus_color: #64b5f6;
+
+
+$btn_close: #f55449;
+$btn_maximize: #39ea49;
+$btn_minimize: #fac536;
 
 $drop_target_color: $selected_bg_color;
 
@@ -42,21 +48,23 @@ $drop_target_color: $selected_bg_color;
 $insensitive_fg_color: $grey_color;
 $insensitive_bg_color: lighten($bg_color, 2%);
 
-$dim_label_fg_color: transparentize($fg_color, 0.35);
-
-$header_bg: $bg_color;
-$header_bg_backdrop: lighten($header_bg, 3%);
-
-$header_border: darken($header_bg, 4%);
-$header_highlight: #373737;
+$dim_label_fg_color: $fg_color;
 
 $header_fg: $fg_color;
+$header_bg: #4d535d;
+$header_bg_backdrop: lighten($header_bg, 3%);
 
-$menu_selected_bg_color: transparentize(white, 0.9);
+$header_border: $header_bg;
+$header_highlight: $header_bg;
 
-$dark_sidebar_bg: #353535;
+
+$menu_selected_bg_color: $selected_bg_color;
+
+$dark_sidebar_bg: darken($bg_color, 3%);
 $dark_sidebar_fg: $fg_color;
-$dark_sidebar_border: $borders_color;
+$dark_sidebar_border: darken($bg_color, 8%);
+$progress_bg_color: darken($bg_color, 8%); 
+$progress_color: rgba(100, 181, 246, 0.35); 
 
 $filechooser_bg: $header_bg;
 

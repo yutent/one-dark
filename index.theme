@@ -8,5 +8,5 @@ Encoding=UTF-8
 GtkTheme=one-dark
 MetacityTheme=one-dark
 IconTheme=Reversal-green-dark
-CursorTheme=DMZ-Black
+CursorTheme=Adwaita
 ButtonLayout=menu:minimize,maximize,close

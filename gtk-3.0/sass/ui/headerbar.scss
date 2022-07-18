@@ -15,11 +15,11 @@ headerbar,
   button.titlebutton {
     $_wm_backdrop_icon_color: lighten($wm_icon_unfocused_bg, 5%);
 
-    min-width: 18px;
-    min-height: 18px;
+    min-width: 16px;
+    min-height: 16px;
     @extend .image-button;
 
-    padding: 10px 3px;
+    padding: 4px;
     margin: 0;
     transition: none;
 
@@ -37,42 +37,40 @@ headerbar,
     &.close,
     &.maximize,
     &.minimize {
-      -gtk-icon-theme: 'Mint-Y';
-
+      // -gtk-icon-theme: 'Reversal-green-dark';
       background-color: transparent;
-      background-size: 18px 18px;
+      background-size: 16px 16px;
       background-position: center;
       background-repeat: no-repeat;
       border-width: 0;
+      color: transparent;
+
+      &:backdrop {
+        @include draw_circle($grey_color);
+      }
     }
 
     &.close {
-      color: $selected_fg_color;
-      @include draw_circle($selected_bg_color);
+      background-image: -gtk-scaled(url("../metacity-1/mac-close.svg"), url("../metacity-1/mac-close@2x.svg"));
 
-      &:hover {
-        @include draw-circle(lighten($selected_bg_color, 5%));
-      }
-      &:active {
-        @include draw-circle(darken($selected_bg_color, 5%));
-      }
-      &:backdrop {
-        @include draw-circle($_wm_backdrop_icon_color);
+      &:hover,&:active {
+        background-image: -gtk-scaled(url("../metacity-1/mac-close_a.svg"), url("../metacity-1/mac-close_a@2x.svg"));
       }
     }
 
-    &.maximize,
+    &.maximize {
+      background-image: -gtk-scaled(url("../metacity-1/mac-max.svg"), url("../metacity-1/mac-max@2x.svg"));
+
+      &:hover,&:active {
+        background-image: -gtk-scaled(url("../metacity-1/mac-max_a.svg"), url("../metacity-1/mac-max_a@2x.svg"));
+      }
+    }
+
     &.minimize {
-      &:hover,
-      &:hover:backdrop {
-        @include draw-circle($wm_button_hover_bg);
-      }
-      &:active,
-      &:active:backdrop {
-        @include draw-circle($wm_button_active_bg);
-      }
-      &:backdrop {
-        color: $_wm_backdrop_icon_color;
+      background-image: -gtk-scaled(url("../metacity-1/mac-min.svg"), url("../metacity-1/mac-min@2x.svg"));
+
+      &:hover,&:active {
+        background-image: -gtk-scaled(url("../metacity-1/mac-min_a.svg"), url("../metacity-1/mac-min_a@2x.svg"));
       }
     }
   }
