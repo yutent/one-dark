@@ -178,7 +178,7 @@ assistant {
 
 textview {
   // This will get overridden by .view, needed by gedit line numbers and the mintupdate package description
-  background-color: mix($bg_color, $base_color, 50%);
+  background-color: $bg_color;
   color: $text_color;
 }
 
