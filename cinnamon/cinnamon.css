@@ -1300,8 +1300,8 @@ StScrollBar StButton#hhandle:active {
 }
 
 .popup-combobox-item {
-  spacing: 1em;
-  padding: 0.4em 1.75em;
+  spacing: 2px;
+  padding: 0.4em 0.2em;
   border: 1px solid transparent;
   border-left-width: 0;
   border-right-width: 0;
