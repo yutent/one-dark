@@ -14,11 +14,11 @@
 # gsettings set org.cinnamon.desktop.interface icon-theme "Reversal-green-dark"
 
 # 桌面主题(Desktop)
-echo "重置桌面主题……"
-gsettings set org.cinnamon.theme name "Mint-Y"
-echo "重置完成, 0.5秒之后, 修改为one-dark"
-sleep 0.5
-gsettings set org.cinnamon.theme name "one-dark"
+# echo "重置桌面主题……"
+# gsettings set org.cinnamon.theme name "Mint-Y"
+# echo "重置完成, 0.5秒之后, 修改为one-dark"
+# sleep 0.5
+# gsettings set org.cinnamon.theme name "one-dark"
 
 # 窗口主题(Windows borders)
 # echo "重置窗口主题……"
